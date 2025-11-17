@@ -9,3 +9,47 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+Questions
+
+
+
+
+```{r}
+library(readr)
+emissions_pc <- read_csv("Data/co-emissions-per-capita.csv")
+electricty_pd <- read_csv("Data/electricity-prod-source-stacked.csv")
+electricity_gt <- read_csv("Data/per-capita-electricity-generation.csv")
+
+```
+
+How does Italy compare to ... in CO2 emissions?
+
+How does Italy's electricity usage/production compare to ...? 
+
+what percentage of Italy's energy production come form renewable sources?
+
+Italy's environmental policy campare to ....? 
+
+
+Title
+
+Overview Objectives
+
+Method
+
+Q1:
+
+
+Q2:
+
+
+Q3:
+
+
+Q4:
+
+Conclusion
+
+
+
