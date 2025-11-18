@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
@@ -15,13 +15,16 @@ Questions
 
 
 
-```{r}
+```{r message = FALSE}
 library(readr)
 emissions_pc <- read_csv("Data/co-emissions-per-capita.csv")
 electricty_pd <- read_csv("Data/electricity-prod-source-stacked.csv")
 electricity_gt <- read_csv("Data/per-capita-electricity-generation.csv")
 
 ```
+
+
+How does Italy's reduction of carbon emissions compare to that of the European Union (EU), China, and the United States (USA)?
 
 How does Italy compare to ... in CO2 emissions?
 
