@@ -3,56 +3,75 @@ title: "group_4_MA7419_CW"
 author: "hads2, sba11, js1392..."
 date: "2025-11-17"
 output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-
 Questions
-
-
-
 
 ```{r message = FALSE}
 library(readr)
 emissions_pc <- read_csv("Data/co-emissions-per-capita.csv")
 electricty_pd <- read_csv("Data/electricity-prod-source-stacked.csv")
 electricity_gt <- read_csv("Data/per-capita-electricity-generation.csv")
-
+co2_sector <- read_csv("Data/per-capita-co2-sector.csv")
+co2_vs_renw <- read_csv("Data/co2-per-capita-vs-renewable-electricity.csv")
 ```
 
+## Slide 1: Jagroop
 
-How does Italy's reduction of carbon emissions compare to that of the European Union (EU), China, and the United States (USA)?
+Title: How does Italy's reduction of carbon emissions compare to its
+region and USA and China?
 
-How does Italy compare to ... in CO2 emissions?
+## Slide 2: Rahul
 
-How does Italy's electricity usage/production compare to ...? 
+Overview Objectives: The objective is to assess Italy's relative
+performance using key metrics like total emissions change, per-capita
+figures, and renewable energy adoption.
 
-what percentage of Italy's energy production come form renewable sources?
+## Slide 3:
 
-Italy's environmental policy campare to ....? 
+Method: Shahil
+
+## Slide 4: Sahadat
+
+Q1) How does Italy compare to ... in CO2 emissions?: 
+graph of CO2 emissions, 1990-2024- compare italy to UK, France, Germany, EU, US,
+China short bullet points discussing the results, link to pulic interest
+
+## Slide 5: Hermann
+
+Q2) What is Italy's Per capita CO₂ emissions by sector? draph:
+graph of taly's Per capita CO₂ emissions by sector (bar chart) for 2022
+
+## Slide 6: Rahul
+
+line graph of electricity and heat production for Italy vs ....
+discuss the reulst and link to public interest 
+
+## Slide 7: SHahil maybe
+
+Q3) what percentage of Italy's energy production come form renewable
+sources?
+
+Line graph - percentage of Italy's energy production for 1990-2022
+
+## Slide 8: Jagroop
+Pie chart - percentage of Italy's energy production for 22
+discuss the results and how it links to the public interest.
 
 
-Title
+discuss the results and how it links to the public interest.
 
-Overview Objectives
+## Slide 9: Sahadat
 
-Method
+Q4) Italy's environmental policy campare to ....?
 
-Q1:
-
-
-Q2:
-
-
-Q3:
-
-
-Q4:
+## Slide 10: Hermann
 
 Conclusion
-
-
-
