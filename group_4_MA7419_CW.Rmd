@@ -49,6 +49,192 @@ China short bullet points discussing the results, link to pulic interest
 Q2) What is Italy's Per capita CO₂ emissions by sector? draph:
 graph of taly's Per capita CO₂ emissions by sector (bar chart) for 2022
 
+```{r}
+
+library(dplyr)
+library(janitor)
+library(tidyr)
+library(ggplot2)
+library(gganimate)
+library(forcats)
+co2_sector <- clean_names(co2_sector, case = "snake") 
+clCo2 <- co2_sector |> select(-per_capita_fugitive_emissions_of_carbon_dioxide_from_energy_production)
+
+
+
+CS <- clCo2  |> rename(
+  "Buildings" = per_capita_carbon_dioxide_emissions_from_buildings,
+  "electricity_and_heat" = per_capita_carbon_dioxide_emissions_from_electricity_and_heat,
+  "industry" = per_capita_carbon_dioxide_emissions_from_industry,
+  "bunker_fuels" = per_capita_carbon_dioxide_emissions_from_bunker_fuels,
+  "land_use_change_and_forestry" = per_capita_carbon_dioxide_emissions_from_land_use_change_and_forestry,
+  "emissions_from_transport" = per_capita_carbon_dioxide_emissions_from_transport,
+  "manufacturing_and_construction" = per_capita_carbon_dioxide_emissions_from_manufacturing_and_construction,
+  "other_fuel_combustion" = per_capita_carbon_dioxide_emissions_from_other_fuel_combustion)
+# 
+CS <- CS |> pivot_longer(cols = c(Buildings,
+                                   electricity_and_heat,
+                                   industry,
+                                   bunker_fuels,
+                                   land_use_change_and_forestry,
+                                   emissions_from_transport,
+                                   manufacturing_and_construction,
+                                   other_fuel_combustion),
+                          names_to = "sector",
+                          values_to = "emission") |> 
+  mutate(emission= round_half_up(emission, -1)) |> 
+  arrange(desc(emission))
+
+CS2 <- CS |> filter(year == 2022, code == "ITA") 
+
+
+
+# ggplot(CS2, aes(x=sector, y=emission)) + 
+#   geom_bar(stat = "identity") +
+#   coord_flip()
+
+CS2 %>%
+  filter(!is.na(emission)) |> 
+  mutate(sector = fct_reorder(sector, emission)) %>%
+  ggplot( aes(x=sector, y=emission,fill= sector)) +
+  geom_bar(stat="identity", alpha=.6, width=.4) +
+  geom_text(aes(label = emission), hjust = "left") +
+  guides(fill="none") +
+  coord_flip() +
+  xlab("") +
+  theme_bw()
+
+CS3 <- CS |> filter(entity == "Italy") 
+
+
+ggplot(CS3, aes(x=sector, y=emission, fill=sector)) +
+  geom_bar(stat='identity')
+
+```
+
+```{r}
+ggplot(CS3, aes(x=sector, y=emission, fill=sector)) +
+  geom_bar(stat='identity') +
+  theme_bw() +
+
+  transition_states(
+    year,
+    transition_length = 33,
+    state_length = 1,
+    wrap = FALSE
+  ) +
+  guides(fill="none") +
+  coord_flip() +
+   ggtitle('Co2 emissions in {closest_state}',
+          subtitle = 'Frame {frame} of {nframes}')
+  ease_aes('sine-in-out')
+```
+
+
+```{r}
+blue <- CS3 |> 
+  filter(!is.na(emission)) |> 
+  mutate(sector = fct_reorder(sector, emission)) |> 
+  ggplot(aes(x=sector, y=emission, fill=sector)) + 
+  geom_bar(stat='identity') +
+  geom_text(aes(label = sprintf("%d", round(emission))), hjust = "left") +
+  theme_bw() +
+  transition_states(year)+
+  guides(fill="none") +
+  coord_flip() +
+   ggtitle('Co2 emissions in {closest_state}',
+          subtitle = 'Frame {frame} of {nframes}') 
+  ease_aes('linear-in')
+
+animate(blue,
+        duration = 30,
+        fps = 10,
+        width = 800,
+        height = 500,
+        start_pause = 10, 
+        end_pause = 20)
+```
+
+
+```{r}
+try <- CS3 |> 
+  filter(!is.na(emission)) |> 
+  mutate(sector = fct_reorder(sector, emission),
+         rank = rank(emission)) |> 
+  # ggplot(aes(x=sector, y=emission, fill=sector)) + 
+  ggplot(aes(xmin = 0,
+             xmax = emission,
+             y = rank,
+             ymin = rank - 20,
+             ymax = rank + 20,
+             fill = sector,
+             label = round(rank,0)
+             )) +
+  geom_rect(alpha = 0.5) +
+  geom_text(aes(x = emission, label = as.character(emission)), hjust = "left") +
+  geom_text(aes(x = 0, label = sector), hjust = "left") +
+  theme_bw() +
+  # Adjust the x-axis scale limits
+  scale_x_continuous(limits = c(0, 300)) +
+  
+  # Customize labels and titles
+  labs(x = NULL, y = NULL, title = "Emissions by sector") +
+  
+  # Add a label indicating the month
+  geom_label(aes(sprintf("%d", round(year))), 
+             x = 250, y = 1, 
+             fill = "white", col = "black",
+             size = 10, 
+             label.padding = unit(1, "lines")) +
+  
+  # Apply a classic theme
+  theme_classic() +
+  
+  # Customize plot appearance
+  theme(legend.position = "none",
+        axis.line.y = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.line.x = element_blank(),
+        title = element_text(size = 40, hjust = 0.5)) +
+  
+  # Create multiple subplots for each month
+  facet_wrap(~year) +
+  
+  # Remove facet labels: this allows us to superlay the facets on top of each other
+  # and then animate the facets
+  facet_null() + 
+  
+  # Create a time-based animation based on 'month_anim'
+  transition_time(year)
+
+# Animate the ggplot object with specified settings
+animate(try,
+        duration = 30,
+        fps = 10,
+        width = 800,
+        height = 500,
+        start_pause = 10, 
+        end_pause = 20)
+```
+
+```{r}
+try2 <-   ggplot(CS3, aes(x = emission, y = reorder(sector, emission), fill = sector)) +
+  geom_col(width = 0.8) +
+  geom_text(aes(label = sprintf("%d", round(emission))), hjust = "left") +
+  transition_time(year) +
+  theme_classic() +
+  theme(legend.position = "none")
+
+animate(try2,
+        duration = 30,
+        fps = 10,
+        width = 800,
+        height = 500,
+        start_pause = 10, 
+        end_pause = 20)
+```
+
 ## Slide 6: Rahul
 
 line graph of electricity and heat production for Italy vs ....
