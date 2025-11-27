@@ -46,14 +46,15 @@ China short bullet points discussing the results, link to pulic interest
 
 ## Slide 5: Hermann
 
-Q2) What is Italy's Per capita CO₂ emissions by sector? draph:
+Q2) What is Italy's Per capita CO₂ emissions by sector? graph:
 graph of taly's Per capita CO₂ emissions by sector (bar chart) for 2022
 
 ```{r}
 
 library(dplyr)
 library(janitor)
-library(tidyr)
+library(tidyverse)
+library(stringr)
 library(ggplot2)
 library(gganimate)
 library(forcats)
@@ -102,11 +103,13 @@ CS2 |>
   geom_text(aes(label = emission), hjust = "left") +
   guides(fill="none") +
   coord_flip() +
+  labs(title = "CO2 emissions per sector",
+     x = "Emissions (Kg)",
+     y = "")+
   xlab("") +
   theme_bw()
 
 CS3 <- CS |> filter(entity == "Italy") 
-
 
 ggplot(CS3, aes(x=sector, y=emission, fill=sector)) +
   geom_bar(stat='identity') +
