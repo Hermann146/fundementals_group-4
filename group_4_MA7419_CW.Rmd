@@ -57,6 +57,7 @@ library(tidyr)
 library(ggplot2)
 library(gganimate)
 library(forcats)
+library(viridis)
 co2_sector <- clean_names(co2_sector, case = "snake") 
 clCo2 <- co2_sector |> select(-per_capita_fugitive_emissions_of_carbon_dioxide_from_energy_production)
 
@@ -93,9 +94,9 @@ CS2 <- CS |> filter(year == 2022, code == "ITA")
 #   geom_bar(stat = "identity") +
 #   coord_flip()
 
-CS2 %>%
+CS2 |> 
   filter(!is.na(emission)) |> 
-  mutate(sector = fct_reorder(sector, emission)) %>%
+  mutate(sector = fct_reorder(sector, emission)) |> 
   ggplot( aes(x=sector, y=emission,fill= sector)) +
   geom_bar(stat="identity", alpha=.6, width=.4) +
   geom_text(aes(label = emission), hjust = "left") +
@@ -108,132 +109,52 @@ CS3 <- CS |> filter(entity == "Italy")
 
 
 ggplot(CS3, aes(x=sector, y=emission, fill=sector)) +
-  geom_bar(stat='identity')
-
-```
-
-```{r}
-ggplot(CS3, aes(x=sector, y=emission, fill=sector)) +
   geom_bar(stat='identity') +
-  theme_bw() +
-
-  transition_states(
-    year,
-    transition_length = 33,
-    state_length = 1,
-    wrap = FALSE
-  ) +
   guides(fill="none") +
-  coord_flip() +
-   ggtitle('Co2 emissions in {closest_state}',
-          subtitle = 'Frame {frame} of {nframes}')
-  ease_aes('sine-in-out')
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
+
 ```
 
 
 ```{r}
-blue <- CS3 |> 
-  filter(!is.na(emission)) |> 
-  mutate(sector = fct_reorder(sector, emission)) |> 
-  ggplot(aes(x=sector, y=emission, fill=sector)) + 
-  geom_bar(stat='identity') +
+library(ggthemes)
+ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
+  geom_line()+
+  geom_point() +
   geom_text(aes(label = sprintf("%d", round(emission))), hjust = "left") +
-  theme_bw() +
-  transition_states(year)+
-  guides(fill="none") +
-  coord_flip() +
-   ggtitle('Co2 emissions in {closest_state}',
-          subtitle = 'Frame {frame} of {nframes}') 
-  ease_aes('linear-in')
+  labs(title = "CO2 emissions per sector",
+     x = "",
+     y = "Emissions (Kg)",
+     color = "Sector")+
+   scale_color_manual(values=c("blue", "orange", "red", "darkorange", "purple","violet","maroon","darkgreen"))+
+  theme(axis.text.x = element_text(size = 14), axis.title.x = element_text(size = 16),
+        axis.text.y = element_text(size = 14), axis.title.y = element_text(size = 16),
+        plot.title = element_text(size = 20, face = "bold", color = "darkgreen"))+
+  transition_reveal(year) 
 
-animate(blue,
-        duration = 30,
-        fps = 10,
-        width = 800,
-        height = 500,
-        start_pause = 10, 
-        end_pause = 20)
+
+ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
+  geom_line()+
+  geom_point() +
+  # geom_text(aes(label = sprintf("%d", round(emission))), hjust = "left") +
+  labs(title = "CO2 emissions per sector",
+     x = "",
+     y = "Emissions (Kg)")+
+  theme() +
+  theme(axis.text.x = element_text(size = 10), axis.title.x = element_text(size = 10),
+        axis.text.y = element_text(size = 10), axis.title.y = element_text(size = 10),
+        plot.title = element_text(size = 20, face = "bold", color = "darkgreen"),
+        legend.title = element_text(family = "Roboto",
+                                    color = "maroon", 
+                                    size = 10,
+                                    face = 2),
+        legend.key.size = unit(0.00001, units = "mm"))+
+  theme(legend.position = "right")
+
 ```
 
 
-```{r}
-try <- CS3 |> 
-  filter(!is.na(emission)) |> 
-  mutate(sector = fct_reorder(sector, emission),
-         rank = rank(emission)) |> 
-  # ggplot(aes(x=sector, y=emission, fill=sector)) + 
-  ggplot(aes(xmin = 0,
-             xmax = emission,
-             y = rank,
-             ymin = rank - 20,
-             ymax = rank + 20,
-             fill = sector,
-             label = round(rank,0)
-             )) +
-  geom_rect(alpha = 0.5) +
-  geom_text(aes(x = emission, label = as.character(emission)), hjust = "left") +
-  geom_text(aes(x = 0, label = sector), hjust = "left") +
-  theme_bw() +
-  # Adjust the x-axis scale limits
-  scale_x_continuous(limits = c(0, 300)) +
-  
-  # Customize labels and titles
-  labs(x = NULL, y = NULL, title = "Emissions by sector") +
-  
-  # Add a label indicating the month
-  geom_label(aes(sprintf("%d", round(year))), 
-             x = 250, y = 1, 
-             fill = "white", col = "black",
-             size = 10, 
-             label.padding = unit(1, "lines")) +
-  
-  # Apply a classic theme
-  theme_classic() +
-  
-  # Customize plot appearance
-  theme(legend.position = "none",
-        axis.line.y = element_blank(),
-        axis.text.y = element_blank(),
-        axis.ticks.y = element_blank(),
-        axis.line.x = element_blank(),
-        title = element_text(size = 40, hjust = 0.5)) +
-  
-  # Create multiple subplots for each month
-  facet_wrap(~year) +
-  
-  # Remove facet labels: this allows us to superlay the facets on top of each other
-  # and then animate the facets
-  facet_null() + 
-  
-  # Create a time-based animation based on 'month_anim'
-  transition_time(year)
 
-# Animate the ggplot object with specified settings
-animate(try,
-        duration = 30,
-        fps = 10,
-        width = 800,
-        height = 500,
-        start_pause = 10, 
-        end_pause = 20)
-```
-
-```{r}
-try2 <-   ggplot(CS3, aes(x = emission, y = reorder(sector, emission), fill = sector)) +
-  geom_col(width = 0.8) +
-  geom_text(aes(label = sprintf("%d", round(emission))), hjust = "left") +
-  transition_time(year) +
-  theme_classic() +
-  theme(legend.position = "none")
-
-animate(try2,
-        duration = 30,
-        fps = 10,
-        width = 800,
-        height = 500,
-        start_pause = 10, 
-        end_pause = 20)
-```
 
 ## Slide 6: Rahul
 
