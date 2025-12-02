@@ -61,6 +61,8 @@ library(ggplot2)
 library(gganimate)
 library(forcats)
 library(viridis)
+library(ggthemes)
+library(paletteer)
 co2_sector <- clean_names(co2_sector, case = "snake") 
 clCo2 <- co2_sector |> select(-per_capita_fugitive_emissions_of_carbon_dioxide_from_energy_production)
 
@@ -135,7 +137,7 @@ CS3 <- CS |> filter(entity == "Italy")
 ## next
 ::: {nonincremental}
 ```{r}
-library(ggthemes)
+
 ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
   geom_line()+
   geom_point() +
@@ -182,7 +184,7 @@ ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
 ## version 3
 
 ```{r}
-library(paletteer)
+
 CS3 |> 
   mutate(sector = fct_reorder(sector, emission, .desc = TRUE)) |>
   ggplot(aes(x = year, y = emission, fill = sector)) +
