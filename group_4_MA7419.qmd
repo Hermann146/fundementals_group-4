@@ -101,15 +101,20 @@ CS2 |>
   filter(!is.na(emission)) |> 
   mutate(sector = fct_reorder(sector, emission)) |> 
   ggplot( aes(x=sector, y=emission,fill= sector)) +
-  geom_bar(stat="identity", alpha=.6, width=.4) +
+  geom_bar(stat="identity", 
+           alpha=.8, 
+           width=.6, 
+           colour = "black", 
+           lineend =  "round", 
+           linejoin = "mitre") +
   geom_text(aes(label = emission), hjust = "left") +
   guides(fill="none") +
   coord_flip() +
+  scale_fill_paletteer_d("ggthemes::Tableau_10") +
+  theme_fivethirtyeight(base_size = 8, base_family = "sans")+
   labs(title = "CO2 emissions per sector",
      x = "Emissions (Kg)",
-     y = "")+
-  xlab("") +
-  theme_bw()
+     y = "Emissions (Kg)")
 
 CS3 <- CS |> filter(entity == "Italy")
 # 
@@ -128,24 +133,27 @@ CS3 <- CS |> filter(entity == "Italy")
 
 
 ## next
-
+::: {nonincremental}
 ```{r}
 library(ggthemes)
 ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
   geom_line()+
   geom_point() +
   geom_text(aes(label = sprintf("%d", round(emission))), hjust = "left") +
-  labs(title = "CO2 emissions per sector",
-     x = "",
-     y = "Emissions (Kg)",
-     color = "Sector")+
-   scale_color_manual(values=c("blue", "orange", "red", "darkorange", "purple","violet","maroon","darkgreen"))+
-  theme(axis.text.x = element_text(size = 14), axis.title.x = element_text(size = 16),
-        axis.text.y = element_text(size = 14), axis.title.y = element_text(size = 16),
-        plot.title = element_text(size = 20, face = "bold", color = "darkgreen"))+
+  theme_minimal(base_size = 6, base_family = "sans")+
+  theme(plot.background = element_rect(fill = "aliceblue"))+
+  theme(axis.text.x = element_text(size = 8, face = "bold"),
+        axis.text.y = element_text(size = 8, face = "bold"), 
+        axis.title.y = element_text(size = 8, face = "bold"),
+        plot.title = element_text(size = 10, face = "bold", color = "brown"),
+        legend.title = element_text(family = "Roboto",
+                                    face = "bold",
+                                    size = 8),
+        legend.key.size = unit(0.5, units = "cm"))+
   transition_reveal(year) 
 
 ```
+:::
 
 ## version 2
 ::: {nonincremental}
@@ -157,15 +165,16 @@ ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
   labs(title = "CO2 emissions per sector",
      x = "",
      y = "Emissions (Kg)")+
-  theme() +
-  theme(axis.text.x = element_text(size = 10), axis.title.x = element_text(size = 10),
-        axis.text.y = element_text(size = 10), axis.title.y = element_text(size = 10),
-        plot.title = element_text(size = 20, face = "bold", color = "darkgreen"),
+  theme_minimal(base_size = 6, base_family = "sans")+
+  theme(plot.background = element_rect(fill = "aliceblue"))+
+  theme(axis.text.x = element_text(size = 8, face = "bold"),
+        axis.text.y = element_text(size = 8, face = "bold"), 
+        axis.title.y = element_text(size = 8, face = "bold"),
+        plot.title = element_text(size = 10, face = "bold", color = "brown"),
         legend.title = element_text(family = "Roboto",
-                                    color = "maroon", 
-                                    size = 10,
-                                    face = 2),
-        legend.key.size = unit(0.00001, units = "mm"))+
+                                    face = "bold",
+                                    size = 8),
+        legend.key.size = unit(0.5, units = "cm"))+
   theme(legend.position = "right")
 ```
 :::
@@ -180,7 +189,18 @@ CS3 |>
   geom_area(alpha = 0.7, colour = "black")+
   ggtitle("CO2 emissions per sector")+
   scale_fill_paletteer_d("MexBrewer::Huida") +
-  theme_minimal(base_size = 6, base_family = "sans")
+  theme_minimal(base_size = 6, base_family = "sans")+
+  theme(plot.background = element_rect(fill = "aliceblue"))+
+  xlab("")+
+  ylab("Emissions (Kg)")+
+  theme(axis.text.x = element_text(size = 8, face = "bold"),
+        axis.text.y = element_text(size = 8, face = "bold"), 
+        axis.title.y = element_text(size = 8, face = "bold"),
+        plot.title = element_text(size = 10, face = "bold", color = "brown"),
+        legend.title = element_text(family = "Roboto",
+                                    face = "bold",
+                                    size = 8),
+        legend.key.size = unit(0.5, units = "cm"))
 
 ?scale_fill_calc
 
