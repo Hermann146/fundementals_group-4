@@ -30,7 +30,7 @@ region and USA and China?
 ## Slide 2: Rahul
 
 Overview Objectives: The objective is to assess Italy's relative
-performance using key metrics like total emissions change, per-capita
+performance using key metrics like total emissions change , per-capita
 figures, and renewable energy adoption.
 
 ## Slide 3:
@@ -46,9 +46,9 @@ China short bullet points discussing the results, link to pulic interest
 ## Slide 5: Hermann {.smaller}
 
 Q2) What is Italy's Per capita CO₂ emissions by sector? 
-:::{.columns}
 
-::: {.column width = "60%"}
+
+
 
 ```{r}
 
@@ -125,15 +125,10 @@ CS3 <- CS |> filter(entity == "Italy")
 #   theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
 
 ```
-:::
 
-::: {.column width = "40%"}
 - Top Emitters: Electricity/heat (1,790) and transport (1,740) dominate individual carbon footprints, accounting for ~50% of per capita emissions. Personal energy use and mobility are key reduction targets.
 
-- Mid-Tier: Buildings (890) and manufacturing (650) show moderate per capita impact, reflecting Italy's less industrialized economy.
-- Carbon Sink: Land use/forestry (-220) provides a per capita carbon offset—potentially giving Italy an advantage when comparing individual carbon footprints against the USA, China, and regional peers.
 
-:::
 
 
 ## next
