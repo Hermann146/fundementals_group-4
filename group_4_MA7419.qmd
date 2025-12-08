@@ -12,7 +12,6 @@ theme: serif
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Questions
 
 ```{r message = FALSE}
 library(readr)
@@ -49,7 +48,7 @@ China short bullet points discussing the results, link to pulic interest
 Q2) What is Italy's Per capita CO₂ emissions by sector? 
 :::{.columns}
 
-::: {.column width = "80%"}
+::: {.column width = "60%"}
 
 ```{r}
 
@@ -70,22 +69,22 @@ clCo2 <- co2_sector |> select(-per_capita_fugitive_emissions_of_carbon_dioxide_f
 
 CS <- clCo2  |> rename(
   "Buildings" = per_capita_carbon_dioxide_emissions_from_buildings,
-  "electricity_and_heat" = per_capita_carbon_dioxide_emissions_from_electricity_and_heat,
+  "electricity and heat" = per_capita_carbon_dioxide_emissions_from_electricity_and_heat,
   "industry" = per_capita_carbon_dioxide_emissions_from_industry,
-  "bunker_fuels" = per_capita_carbon_dioxide_emissions_from_bunker_fuels,
-  "land_use_change_and_forestry" = per_capita_carbon_dioxide_emissions_from_land_use_change_and_forestry,
-  "emissions_from_transport" = per_capita_carbon_dioxide_emissions_from_transport,
-  "manufacturing_and_construction" = per_capita_carbon_dioxide_emissions_from_manufacturing_and_construction,
-  "other_fuel_combustion" = per_capita_carbon_dioxide_emissions_from_other_fuel_combustion)
+  "bunker fuels" = per_capita_carbon_dioxide_emissions_from_bunker_fuels,
+  "land use change and forestry" = per_capita_carbon_dioxide_emissions_from_land_use_change_and_forestry,
+  "emissions from transport" = per_capita_carbon_dioxide_emissions_from_transport,
+  "manufacturing and construction" = per_capita_carbon_dioxide_emissions_from_manufacturing_and_construction,
+  "other fuel combustion" = per_capita_carbon_dioxide_emissions_from_other_fuel_combustion)
 # 
-CS <- CS |> pivot_longer(cols = c(Buildings,
-                                   electricity_and_heat,
-                                   industry,
-                                   bunker_fuels,
-                                   land_use_change_and_forestry,
-                                   emissions_from_transport,
-                                   manufacturing_and_construction,
-                                   other_fuel_combustion),
+CS <- CS |> pivot_longer(cols = c("Buildings",
+                                   "electricity and heat",
+                                   "industry",
+                                   "bunker fuels",
+                                   "land use change and forestry",
+                                   "emissions from transport",
+                                   "manufacturing and construction",
+                                   "other fuel combustion"),
                           names_to = "sector",
                           values_to = "emission") |> 
   mutate(emission= round_half_up(emission, -1)) |> 
@@ -114,7 +113,7 @@ CS2 |>
   coord_flip() +
   scale_fill_paletteer_d("ggthemes::Tableau_10") +
   theme_fivethirtyeight(base_size = 8, base_family = "sans")+
-  labs(title = "CO2 emissions per sector",
+  labs(title = "Italy's 2022 CO2 emissions (kg) per capita by sector",
      x = "Emissions (Kg)",
      y = "Emissions (Kg)")
 
@@ -128,8 +127,11 @@ CS3 <- CS |> filter(entity == "Italy")
 ```
 :::
 
-::: {.column width = "20%"}
-- text
+::: {.column width = "40%"}
+- Top Emitters: Electricity/heat (1,790) and transport (1,740) dominate individual carbon footprints, accounting for ~50% of per capita emissions. Personal energy use and mobility are key reduction targets.
+
+- Mid-Tier: Buildings (890) and manufacturing (650) show moderate per capita impact, reflecting Italy's less industrialized economy.
+- Carbon Sink: Land use/forestry (-220) provides a per capita carbon offset—potentially giving Italy an advantage when comparing individual carbon footprints against the USA, China, and regional peers.
 
 :::
 
@@ -164,7 +166,7 @@ ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
   geom_line()+
   geom_point() +
   # geom_text(aes(label = sprintf("%d", round(emission))), hjust = "left") +
-  labs(title = "CO2 emissions per sector",
+  labs(title = "Italy's per capita CO2 emissions by sector",
      x = "",
      y = "Emissions (Kg)")+
   theme_minimal(base_size = 6, base_family = "sans")+
@@ -189,7 +191,7 @@ CS3 |>
   mutate(sector = fct_reorder(sector, emission, .desc = TRUE)) |>
   ggplot(aes(x = year, y = emission, fill = sector)) +
   geom_area(alpha = 0.7, colour = "black")+
-  ggtitle("CO2 emissions per sector")+
+  ggtitle("Italy's per capita CO2 emissions by sector")+
   scale_fill_paletteer_d("MexBrewer::Huida") +
   theme_minimal(base_size = 6, base_family = "sans")+
   theme(plot.background = element_rect(fill = "aliceblue"))+
@@ -198,7 +200,7 @@ CS3 |>
   theme(axis.text.x = element_text(size = 8, face = "bold"),
         axis.text.y = element_text(size = 8, face = "bold"), 
         axis.title.y = element_text(size = 8, face = "bold"),
-        plot.title = element_text(size = 10, face = "bold", color = "brown"),
+        plot.title = element_text(size = 13, face = "bold", color = "chocolate4"),
         legend.title = element_text(family = "Roboto",
                                     face = "bold",
                                     size = 8),
