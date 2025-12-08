@@ -203,7 +203,7 @@ ggplot(engery_clean, aes(
   y = renewables_percent_electricity,
   colour = entity
 )) +
-  geom_line(
+  geom_line( 
     size = 1) +
   
   geom_point(size = 1, alpha = 1) +
