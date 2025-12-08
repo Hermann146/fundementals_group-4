@@ -230,7 +230,7 @@ engery_clean <- co2_vs_renw |>
     renewables_percent_electricity
   ) |> 
   filter(
-    entity %in% c("Italy","United Kingdom", "France","China", "United States"),
+    entity %in% c("Italy","United Kingdom", "France","China", "United States", "Germany"),
     year >= 1990 & year <= 2022 
   ) |> 
   filter(!is.na(renewables_percent_electricity))
@@ -252,16 +252,28 @@ ggplot(engery_clean, aes(
   y = renewables_percent_electricity,
   colour = entity
 )) +
-  geom_line(
+  geom_line( 
     size = 1) +
   
-  geom_point(size = 1.5, alpha = 1)+
+  geom_point(size = 1, alpha = 1) +
   
+  geom_line(
+    data = engery_clean |> filter(entity == "Italy"),
+    aes(x = year,
+        y = renewables_percent_electricity),
+    linewidth = 1.5,
+  ) +
+  geom_point(
+    data = engery_clean |> filter(entity == "Italy"),
+    aes(x = year,
+        y = renewables_percent_electricity),
+    size = 2.5
+  ) +
   labs(
-    title = "Renewable Electricity (1990-2022)",
+    title = "Renewable Electricity  (1990-2022)",
     x = "Year",
     y = "Renewable Share of Electricity",
-    subtitle = "Italy compared with UK, France, China and US",
+    subtitle = "Italy compared with UK, France, Germany, China and US",
     colour = "Country",
     caption = "Data source: Global Carbon Budget (2025) and other sources"
   ) +
