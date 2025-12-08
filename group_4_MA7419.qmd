@@ -129,11 +129,12 @@ CS3 <- CS |> filter(entity == "Italy")
 ```
 :::
 
-::: {.column width = "40%"}
-- Top Emitters: Electricity/heat (1,790) and transport (1,740) dominate individual carbon footprints, accounting for ~50% of per capita emissions. Personal energy use and mobility are key reduction targets.
+::: {.column width = "30%"} 
+- Top Emitters: Electricity/heat (1,790) and transport (1,740) account for ~50% of emissions. Energy use and mobility are key targets.
 
-- Mid-Tier: Buildings (890) and manufacturing (650) show moderate per capita impact, reflecting Italy's less industrialized economy.
-- Carbon Sink: Land use/forestry (-220) provides a per capita carbon offset—potentially giving Italy an advantage when comparing individual carbon footprints against the USA, China, and regional peers.
+- Mid-Tier: Buildings (890) and manufacturing (650) show moderate impact, indicating Italy's less industrialized economy.
+
+- Carbon Sink: Land use/forestry (-220) provides a carbon offset.
 
 :::
 
