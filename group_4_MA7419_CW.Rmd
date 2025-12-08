@@ -219,6 +219,65 @@ Q3) what percentage of Italy's energy production come form renewable
 sources?
 
 Line graph - percentage of Italy's energy production for 1990-2022
+```{r}
+# Cleaned/filtered data  
+engery_clean <- co2_vs_renw |> 
+  clean_names() |> 
+  select(
+    entity,
+    year,
+    annual_co2_emissions_per_capita,
+    renewables_percent_electricity
+  ) |> 
+  filter(
+    entity %in% c("Italy","United Kingdom", "France","China", "United States"),
+    year >= 1990 & year <= 2022 
+  ) |> 
+  filter(!is.na(renewables_percent_electricity))
+
+# Checking if all country have full coverage for the years
+engery_clean |> 
+  group_by(entity) |> 
+  summarise(
+    min_year = min(year),
+    max_year = max(year),
+    n = n()
+  )
+View(engery_clean)
+```
+```{r}
+# Plotting  
+ggplot(engery_clean, aes(
+  x = year ,
+  y = renewables_percent_electricity,
+  colour = entity
+)) +
+  geom_line(
+    size = 1) +
+  
+  geom_point(size = 1.5, alpha = 1)+
+  
+  labs(
+    title = "Renewable Electricity (1990-2022)",
+    x = "Year",
+    y = "Renewable Share of Electricity",
+    subtitle = "Italy compared with UK, France, China and US",
+    colour = "Country",
+    caption = "Data source: Global Carbon Budget (2025) and other sources"
+  ) +
+  scale_color_brewer(palette = "Dark2") +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    axis.title = element_text(face = "bold"),
+    legend.title = element_text(face = "bold"),
+    plot.subtitle = element_text(size = 10)
+)
+
+
+
+```
+
 
 ## Slide 8: Jagroop
 Pie chart - percentage of Italy's energy production for 22
