@@ -6,7 +6,7 @@ logo: CopyOfuniversity-of-leicester-logo_2.png
 css: custom.css
 editor: visual
 theme: simple
-fontsize: 2em
+fontsize: 1.5em
 
 ---
 
@@ -51,17 +51,16 @@ figures, and renewable energy adoption.
 
 Method: Shahil
 
-## Slide 4: Sahadat{.smaller}
+## Slide 4: Sahadat
 
 Q1) How does Italy compare to ... in CO2 emissions?: 
 graph of CO2 emissions, 1990-2024- compare italy to UK, France, Germany, EU, US,
 China short bullet points discussing the results, link to pulic interest
 
-## Slide 5: Hermann {.smaller}
+## Slide 5: Hermann 
 
 Q2) What is Italy's Per capita CO₂ emissions by sector? 
 
-:::{.columns width = "60%"}
 
 ```{r}
 
@@ -80,7 +79,7 @@ CS <- clCo2  |> rename(
   "emissions from transport" = per_capita_carbon_dioxide_emissions_from_transport,
   "manufacturing and construction" = per_capita_carbon_dioxide_emissions_from_manufacturing_and_construction,
   "other fuel combustion" = per_capita_carbon_dioxide_emissions_from_other_fuel_combustion)
-# 
+
 CS <- CS |> pivot_longer(cols = c("Buildings",
                                    "electricity and heat",
                                    "industry",
@@ -107,14 +106,14 @@ CS2 |>
            colour = "black", 
            lineend =  "round", 
            linejoin = "mitre") +
-  geom_text(aes(label = emission), hjust = "left") +
+  geom_text(aes(label = emission), hjust = "left", nudge_y = 12) +
   guides(fill="none") +
   coord_flip() +
   scale_fill_paletteer_d("ggthemes::Tableau_10") +
   theme(plot.background = element_rect(fill = "white"))+
   theme(axis.text.x = element_text(size = 8, face = "bold"),
         axis.text.y = element_text(size = 8, face = "bold"))+
-  theme_fivethirtyeight(base_size = 10, base_family = "sans")+
+  theme_minimal(base_size = 10, base_family = "sans")+
   labs(title = "Italy's 2022 CO2 emissions (kg) per capita by sector",
      x = "Emissions (Kg)",
      y = "Emissions (Kg)")
@@ -123,15 +122,13 @@ CS3 <- CS |> filter(entity == "Italy")
 
 
 ```
-:::
-:::{.columns width = "40%"}
 
 - Top Emitters: Electricity/heat (1,790) and transport (1,740) account for ~50% of emissions. Energy use and mobility are key targets.
 
 - Mid-Tier: Buildings (890) and manufacturing (650) show moderate impact, indicating Italy's less industrialized economy.
 
 - Carbon Sink: Land use/forestry (-220) provides a carbon offset.
-:::
+
 
 ## next
 ::: {nonincremental}
@@ -140,7 +137,7 @@ CS3 <- CS |> filter(entity == "Italy")
 latest <- CS3 |> filter(year == max(year)) |> arrange(desc(emission))
 CS3$sector <- factor(CS3$sector, levels = latest$sector)
 
-ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
+ani <- ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
   geom_line()+
   geom_point() +
   labs(title = "Italy's per capita CO2 emissions by sector",
@@ -168,9 +165,16 @@ ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
         legend.title = element_text(family = "Roboto",
                                     face = "bold",
                                     size = 8),
-        legend.text  = element_text(size = 6))+
+        legend.text  = element_text(size = 8))+
   theme(legend.position = "right")+
-  transition_reveal(year, keep_last = TRUE) 
+  transition_reveal(year) 
+
+animate(
+  ani,
+  fps = 25,
+  duration = 10,
+  end_pause = 200
+)
 
 ```
 :::
@@ -210,7 +214,7 @@ ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
   theme(legend.position = "right")
 ```
 
-## version 3{.smaller}
+## version 3
 
 ```{r}
 
@@ -219,7 +223,7 @@ CS3 |>
   ggplot(aes(x = year, y = emission, fill = sector)) +
   geom_area(alpha = 0.75) +
   labs(
-    title = "Italy's per capita CO₂ emissions by sector",
+    title = "Italy's per capita CO2 emissions by sector",
     subtitle = "1990–2022 • Stacked contributions of major sectors",
     y = "Emissions (kg per capita)",
     x = "",
@@ -243,12 +247,12 @@ CS3 |>
 
 ```
 
-## Slide 6: Rahul{.smaller}
+## Slide 6: Rahul
 
 line graph of electricity and heat production for Italy vs ....
 discuss the reulst and link to public interest 
 
-## Slide 7: SHahil{.smaller}
+## Slide 7: SHahil
 
 Q3) what percentage of Italy's energy production come form renewable
 sources?
