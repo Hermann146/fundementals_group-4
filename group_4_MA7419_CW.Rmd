@@ -212,6 +212,19 @@ CS3 |>
 line graph of electricity and heat production for Italy vs .... discuss
 the reulst and link to public interest
 
+```{r}
+library(dplyr)
+library(ggplot2)
+elec_heat <- co2_sector |> 
+  rename(Country = Entity, co2_from_heat_electricity = `Per capita carbon dioxide emissions from electricity and heat`) |>
+  filter(Country %in% c("Italy", "European Union (27)", "France", "Germany", "China", "United States", "United Kingdom")) |>
+  select(Country,Code,Year,co2_from_heat_electricity)
+
+ggplot(elec_heat, aes(x = Year, y = co2_from_heat_electricity, color = Country))+
+  geom_line()
+```
+
+
 ## Slide 7: SHahil maybe
 
 Q3) what percentage of Italy's energy production come form renewable
