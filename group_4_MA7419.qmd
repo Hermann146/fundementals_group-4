@@ -2,7 +2,7 @@
 title: "group_4_MA7419_CW"
 format: revealjs
 incremental: true
-logo: University.png
+logo: CopyOfuniversity-of-leicester-logo_2.png
 editor: visual
 theme: simple
 
