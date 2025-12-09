@@ -2,9 +2,9 @@
 title: "group_4_MA7419_CW"
 format: revealjs
 incremental: true
-logo: University of Leicester_idL_tbqT7i_0.png
+logo: C:\Users\hdkin_7jc9fuf\OneDrive\Documenti\R\team4\fundementals_group-4
 editor: visual
-theme: serif
+theme: sky
 
 ---
 
@@ -48,7 +48,7 @@ figures, and renewable energy adoption.
 
 Method: Shahil
 
-## Slide 4: Sahadat
+## Slide 4: Sahadat{.smaller}
 
 Q1) How does Italy compare to ... in CO2 emissions?: 
 graph of CO2 emissions, 1990-2024- compare italy to UK, France, Germany, EU, US,
@@ -57,10 +57,9 @@ China short bullet points discussing the results, link to pulic interest
 ## Slide 5: Hermann {.smaller}
 
 Q2) What is Italy's Per capita CO₂ emissions by sector? 
-
+:::: {.columns}
 
 ::: {.column width = "60%"}
-
 ```{r}
 
   
@@ -128,17 +127,12 @@ CS3 <- CS |> filter(entity == "Italy")
 
 ```
 :::
-
-::: {.column width = "30%"} 
+::: {.column width = "40%"} 
 - Top Emitters: Electricity/heat (1,790) and transport (1,740) account for ~50% of emissions. Energy use and mobility are key targets.
-
 - Mid-Tier: Buildings (890) and manufacturing (650) show moderate impact, indicating Italy's less industrialized economy.
-
 - Carbon Sink: Land use/forestry (-220) provides a carbon offset.
-
 :::
-
-
+::::
 ## next
 ::: {nonincremental}
 ```{r}
@@ -186,7 +180,7 @@ ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
 ```
 :::
 
-## version 3
+## version 3{.smaller}
 
 ```{r}
 
@@ -213,12 +207,12 @@ CS3 |>
 
 ```
 
-## Slide 6: Rahul
+## Slide 6: Rahul{.smaller}
 
 line graph of electricity and heat production for Italy vs ....
 discuss the reulst and link to public interest 
 
-## Slide 7: SHahil maybe
+## Slide 7: SHahil{.smaller}
 
 Q3) what percentage of Italy's energy production come form renewable
 sources?
