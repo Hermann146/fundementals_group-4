@@ -3,8 +3,10 @@ title: "group_4_MA7419_CW"
 format: revealjs
 incremental: true
 logo: CopyOfuniversity-of-leicester-logo_2.png
+css: custom.css
 editor: visual
 theme: simple
+fontsize: 2em
 
 ---
 
@@ -58,9 +60,9 @@ China short bullet points discussing the results, link to pulic interest
 ## Slide 5: Hermann {.smaller}
 
 Q2) What is Italy's Per capita CO₂ emissions by sector? 
-::: {.columns}
 
-::: {.column width = "60%"}
+:::{.columns width = "60%"}
+
 ```{r}
 
   
@@ -110,7 +112,9 @@ CS2 |>
   coord_flip() +
   scale_fill_paletteer_d("ggthemes::Tableau_10") +
   theme(plot.background = element_rect(fill = "white"))+
-  theme_fivethirtyeight(base_size = 8, base_family = "sans")+
+  theme(axis.text.x = element_text(size = 8, face = "bold"),
+        axis.text.y = element_text(size = 8, face = "bold"))+
+  theme_fivethirtyeight(base_size = 10, base_family = "sans")+
   labs(title = "Italy's 2022 CO2 emissions (kg) per capita by sector",
      x = "Emissions (Kg)",
      y = "Emissions (Kg)")
@@ -120,9 +124,12 @@ CS3 <- CS |> filter(entity == "Italy")
 
 ```
 :::
-::: {.column width = "40%"} 
+:::{.columns width = "40%"}
+
 - Top Emitters: Electricity/heat (1,790) and transport (1,740) account for ~50% of emissions. Energy use and mobility are key targets.
+
 - Mid-Tier: Buildings (890) and manufacturing (650) show moderate impact, indicating Italy's less industrialized economy.
+
 - Carbon Sink: Land use/forestry (-220) provides a carbon offset.
 :::
 
@@ -169,7 +176,7 @@ ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
 :::
 
 ## version 2
-::: {nonincremental}
+
 ```{r}
 ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
   geom_line()+
@@ -202,7 +209,6 @@ ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
         legend.text  = element_text(size = 6))+
   theme(legend.position = "right")
 ```
-:::
 
 ## version 3{.smaller}
 
