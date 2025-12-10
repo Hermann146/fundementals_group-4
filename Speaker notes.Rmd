@@ -16,5 +16,6 @@ This line graph shows the per capita carbon dioxide emissions from electricity a
 ##Slide 7:
 This line graph showcases the percentage of electricity produced from renewable energy sources, and is compared with the UK, Germany, France, China and US from 1990 to 2022. Italy generation of renewable electricity has increased with significant acceleration beginning from 2008. Also, Italy outperforms the US, France and China but is behind Germany and UK who show faster growth. The trends suggest all countries are committed to transitioning to renewable electricity which the graph shows meaning Italy progress towards more sustainable energy is positive.
 ##Slide 8:
+In 2022, Italy relied heavily on gas for its energy supply, with over half of total production from this single source. Renewables—mainly hydro and solar—played a meaningful but secondary role, while nuclear energy was not included as it contributed nothing. This reliance explains why energy prices and security remain major concerns: disruptions in gas supply quickly impact households and businesses. At the same time, the steady growth of renewables reflects strong public interest in cleaner, more reliable options. The chart shows a country dependent on Gas and proceeding towards sustainable energy.
 ##Slide 9:
 ##Slide 10:

@@ -27,6 +27,8 @@ library(ggthemes)
 library(paletteer)
 library(palette)
 library(forcats)
+library(plotly)
+library(tidyr)
 
 cO2_data <- read_csv("Data/co-emissions-per-capita.csv")
 electricty_pd <- read_csv("Data/electricity-prod-source-stacked.csv")
@@ -64,11 +66,11 @@ ggplot(Data1, aes(x = Year, y = emissions_pc, color = Entity, group = Entity)) +
   geom_line(size = 1.2, alpha = 0.8) +
   
   geom_line(data = filter(Data1, Entity == "Italy"), 
-            size = 1.2, color = "Blue") +
+            size = 1.4) +
   geom_point(data = filter(Data1, Entity == "Italy"),
-             size = 2, color = "Blue", fill = "Blue", shape = 21) +
+             size = 2.2) +
   
-  scale_fill_paletteer_d("ggthemes::Tableu_10")+
+  scale_color_brewer(palette = "Dark2") +
 
   labs(
     title = "Comparing Italy's annual CO2 Emissions per Capita (1990 - 2024)",
@@ -201,12 +203,15 @@ ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))
 
 -   Italy’s CO2 emissions from electricity and heat showed a moderate increase between 1990 and 2006.
 
+<<<<<<< HEAD
 -   Following this period, the figures declined steadily up to 2020, before rising again from 2020 to 2022.
 
 -   Italy releases CO2 through heat and electricity less than every other country except France, and US is in peak level, which shows Italy is showing more concern towards usage of carbon electricity.
 
 ## what percentage of Italy's energy production come form renewable sources?
 
+=======
+>>>>>>> 10fbbd7f77b3b5694090da30023d711c45f87a91
 ```{r}
 # Cleaned/filtered data  
 engery_clean <- co2_vs_renw |> 
@@ -222,6 +227,15 @@ engery_clean <- co2_vs_renw |>
     year >= 1990 & year <= 2022 
   ) |> 
   filter(!is.na(renewables_percent_electricity))
+
+ # Arrange the countries to match the legend
+engery_clean <- engery_clean |>
+  mutate(
+    entity = factor(
+      entity,
+      level = c("Germany", "United Kingdom","Italy","China","France", "United States" )
+    )
+  )
 
 ```
 
@@ -251,7 +265,7 @@ ggplot(engery_clean, aes(
   ) +
   labs(
     title = "Renewable Electricity  (1990-2022)",
-    x = "Year",
+    x = "",
     y = "Renewable Share of Electricity",
     subtitle = "Italy compared with UK, France, Germany, China and US",
     colour = "Country",
@@ -270,7 +284,11 @@ ggplot(engery_clean, aes(
 
 -   Italy outperforms the US, France and China, while the UK and Germany show faster renewable growth peaks.
 
+<<<<<<< HEAD
 \<\<\<\<\<\<\< HEAD - Italy's progress shows commitment towards cleaner electricity usage and their transition to achieve that goal.
+=======
+-   Italy's progress shows commitment towards cleaner electricity usage and their transition to achieve that goal.
+>>>>>>> 10fbbd7f77b3b5694090da30023d711c45f87a91
 
 ::: footer{.smaller}
 Data source: Global Carbon Budget (2025) and other sources
@@ -280,7 +298,61 @@ Data source: Global Carbon Budget (2025) and other sources
 
 Pie chart - percentage of Italy's energy production for 22 discuss the results and how it links to the public interest.
 
-discuss the results and how it links to the public interest.
+
+```{r}
+electricty_pd <-  clean_names(electricty_pd)
+
+clean_electricity_pd <- electricty_pd |> 
+  rename(
+    Other_Renewables = "other_renewables_excluding_bioenergy_t_wh_adapted_for_visualization_of_chart_electricity_prod_source_stacked",
+    Bioenergry = "electricity_from_bioenergy_t_wh_adapted_for_visualization_of_chart_electricity_prod_source_stacked",
+    Solar = "electricity_from_solar_t_wh_adapted_for_visualization_of_chart_electricity_prod_source_stacked",
+    Wind = "electricity_from_wind_t_wh_adapted_for_visualization_of_chart_electricity_prod_source_stacked",
+    Hydro = "electricity_from_hydro_t_wh_adapted_for_visualization_of_chart_electricity_prod_source_stacked",
+    Nuclear = "electricity_from_nuclear_t_wh_adapted_for_visualization_of_chart_electricity_prod_source_stacked",
+    Oil = "electricity_from_oil_t_wh_adapted_for_visualization_of_chart_electricity_prod_source_stacked",
+    Gas = "electricity_from_gas_t_wh_adapted_for_visualization_of_chart_electricity_prod_source_stacked",
+    Coal = "electricity_from_coal_t_wh_adapted_for_visualization_of_chart_electricity_prod_source_stacked")
+
+italy_electricity_pd <- clean_electricity_pd |> 
+    filter(entity == "Italy", year == 2022)
+
+electricty_pd_longer <- italy_electricity_pd |> 
+  pivot_longer(cols = c(Other_Renewables, Bioenergry, Solar, Wind, Hydro, Oil, Gas, Coal),
+               names_to = "variables",
+               values_to = "values") |> 
+  select(-c(entity, code, year)) |> 
+  arrange(values)
+
+colors <- c("#BD3106FF", "#D9700EFF", "#E9A00EFF", "#EEBE04FF", "#5B7314FF", "#C3D6CEFF", "#89A6BBFF", "#454B87FF")
+
+final <- plot_ly(type='pie', labels=electricty_pd_longer$variables, values=electricty_pd_longer$values, 
+               textinfo='percent',
+               marker = list(colors = colors),
+               insidetextorientation='radial',
+               textfont = list(family = "Arial",
+                               size = 15,
+                               color = "white"))
+final <- final |> add_annotations(
+        y=1.06, 
+        x=0.5, 
+        text="Italy's Energy Production in 2022", 
+        showarrow=F,
+        font=list(size=15,
+                  color = "black"))
+final <- final |>
+  layout(
+    legend = list(
+      font = list(size = 18)))
+final
+
+```
+
+-  Italy’s strong dependence on gas keeps the country exposed to price swings and supply risks.
+
+-  Renewable energy is expanding, yet it still falls short of what’s needed to greatly reduce fossil-fuel reliance.
+
+-  The overall mix shows a nation in transition, with public interest focused on cleaner, more secure, and affordable energy.
 
 ## Slide 9: Sahadat
 
