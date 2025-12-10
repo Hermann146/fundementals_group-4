@@ -265,16 +265,18 @@ CS3 |>
 line graph of electricity and heat production for Italy vs .... discuss
 the reulst and link to public interest
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 library(dplyr)
 library(ggplot2)
 elec_heat <- co2_sector |> 
-  rename(Country = entity, co2_from_heat_electricity = `Per capita carbon dioxide emissions from electricity and heat`) |>
+  rename(Country = Entity, co2_from_heat_electricity = `Per capita carbon dioxide emissions from electricity and heat`) |>
   filter(Country %in% c("Italy", "European Union (27)", "France", "Germany", "China", "United States", "United Kingdom")) |>
   select(Country,Code,Year,co2_from_heat_electricity)
 
 ggplot(elec_heat, aes(x = Year, y = co2_from_heat_electricity, color = Country))+
-  geom_line()
+  geom_line()+
+  labs(title = "Per capita CO2 emissions from electricity and heat",subtitle = "Countries compared with Italy: France, Germany, UK, US, China and Europian Union", x = "", y= "Per capita CO2 emissions")+
+  theme_classic()
 ```
 
 
