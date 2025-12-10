@@ -53,9 +53,6 @@ Method: Shahil
 | **Visuals** | Implemented pie chart, line graphs and highlighted area chart based on the question while highlighting Italy. | The area chart and line chart both showcase the trends over time between the variables and the pie chart compares a single years value for Italy. |
 | **Collaboration** | Each member answered one question and created one visual based on there question. | This ensured fair workload for all members and enabled comprehensive analysis of Italy's environmental performance. |
 
-
-
-
 ## Italy's CO~2~ emissions vs its peers
 
 ```{r}
@@ -337,7 +334,7 @@ fig
 
 ## Slide 9: Sahadat
 
-Table of Italy's Environmental Policy Comparison 
+Table of Italy's Environmental Policy Comparison
 
 | Comparative Region | Italy's Approach | Key Differences |
 |------------------------|------------------------|------------------------|
