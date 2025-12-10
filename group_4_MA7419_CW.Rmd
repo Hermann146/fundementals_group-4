@@ -81,8 +81,8 @@ ggplot(Data1, aes(x = Year, y = emissions_pc, color = Entity, group = Entity)) +
   )
 
 # Analysis 
-# Italy occupies a "middle ground" among major European economies, consistently emitting less CO₂ per person than Germany and the wider European Union average, while remaining higher than France. Although Italy generally mirrors the EU’s aggregate downward trend, dropping from ~7.5 to ~5 tonnes per capita.
-#The United States operates on a vastly larger scale, emitting nearly triple Italy’s per capita volume (~14 vs. ~5 tonnes). However, China follows an inverse trajectory, fueled by rapid industrialization. It surged from ~2 tonnes in 1990 to overtake Italy’s declining path around 2012, reaching nearly 9 tonnes today.
+#Italy consistently emits less CO₂ per capita than Germany and the wider European Union average, while remaining higher than France.The United States emits nearly three times Italy’s CO2 per capita, but China follows an inverse trajectory, with rapid industrialization reaching almost 9 tonnes today.
+
 
 ```
 
@@ -307,13 +307,14 @@ the reulst and link to public interest
 library(dplyr)
 library(ggplot2)
 elec_heat <- co2_sector |> 
-  rename(Country = entity, co2_from_heat_electricity = `Per capita carbon dioxide emissions from electricity and heat`) |>
+  rename(Country = Entity, co2_from_heat_electricity = `Per capita carbon dioxide emissions from electricity and heat`) |>
   filter(Country %in% c("Italy", "European Union (27)", "France", "Germany", "China", "United States", "United Kingdom")) |>
   select(Country,Code,Year,co2_from_heat_electricity)
 
 ggplot(elec_heat, aes(x = Year, y = co2_from_heat_electricity, color = Country))+
   geom_line()+
-  labs(title = "Per capita CO2 emissions from electricity and heat",subtitle = "Countries compared with Italy: France, Germany, UK, US, China and Europian Union", x = "", y= "Per capita CO2 emissions")
+  labs(title = "Per capita CO2 emissions from electricity and heat",subtitle = "Countries compared with Italy: France, Germany, UK, US, China and Europian Union", x = "", y= "Per capita CO2 emissions")+
+  theme_classic()
 ```
 
 
