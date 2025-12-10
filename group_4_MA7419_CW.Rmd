@@ -273,10 +273,17 @@ elec_heat <- co2_sector |>
   filter(Country %in% c("Italy", "European Union (27)", "France", "Germany", "China", "United States", "United Kingdom")) |>
   select(Country,Code,Year,co2_from_heat_electricity)
 
+max_elec_heat <- elec_heat |>
+  filter(Year == max(Year))|>
+  arrange(desc(co2_from_heat_electricity))
+
+elec_heat$Country <- factor(elec_heat$Country, levels = max_elec_heat$Country)
+
 ggplot(elec_heat, aes(x = Year, y = co2_from_heat_electricity, color = Country))+
-  geom_line()+
-  labs(title = "Per capita CO2 emissions from electricity and heat",subtitle = "Countries compared with Italy: France, Germany, UK, US, China and Europian Union", x = "", y= "Per capita CO2 emissions")+
-  theme_classic()
+  geom_line(key_glyph = "timeseries",size=1.3)+
+  labs(title = "Per capita CO2 emissions from electricity and heat",subtitle = "Italy compared with UK, France, Germany, China and US", x = "", y= "Per capita CO2 emissions")+
+  theme_classic()+
+  theme(plot.title = )
 ```
 
 

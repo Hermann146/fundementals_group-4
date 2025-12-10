@@ -7,13 +7,11 @@ css: custom.css
 editor: visual
 theme: simple
 fontsize: 1.5em
-
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
 
 ```{r message = FALSE}
 library(readr)
@@ -38,14 +36,11 @@ co2_vs_renw <- read_csv("Data/co2-per-capita-vs-renewable-electricity.csv")
 
 ## Slide 1: Jagroop
 
-Title: How does Italy's reduction of carbon emissions compare to its
-region and USA and China?
+Title: How does Italy's reduction of carbon emissions compare to its region and USA and China?
 
 ## Slide 2: Rahul
 
-Overview Objectives: The objective is to assess Italy's relative
-performance using key metrics like total emissions change , per-capita
-figures, and renewable energy adoption.
+Overview Objectives: The objective is to assess Italy's relative performance using key metrics like total emissions change , per-capita figures, and renewable energy adoption.
 
 ## Slide 3:
 
@@ -53,11 +48,9 @@ Method: Shahil
 
 ## Slide 4: Sahadat
 
-Q1) How does Italy compare to ... in CO2 emissions?: 
-graph of CO2 emissions, 1990-2024- compare italy to UK, France, Germany, EU, US,
-China short bullet points discussing the results, link to pulic interest
+Q1) How does Italy compare to ... in CO2 emissions?: graph of CO2 emissions, 1990-2024- compare italy to UK, France, Germany, EU, US, China short bullet points discussing the results, link to pulic interest
 
-## Italy's Per capita CO₂ emissions by sector  
+## Italy's Per capita CO₂ emissions by sector
 
 ```{r}
 
@@ -120,14 +113,14 @@ CS3 <- CS |> filter(entity == "Italy")
 
 ```
 
-- Top Emitters: Electricity/heat (1,790) and transport (1,740) account for ~50% of emissions. Energy use and mobility are key targets.
+-   Top Emitters: Electricity/heat (1,790) and transport (1,740) account for \~50% of emissions. Energy use and mobility are key targets.
 
-- Mid-Tier: Buildings (890) and manufacturing (650) show moderate impact, indicating Italy's less industrialized economy.
+-   Mid-Tier: Buildings (890) and manufacturing (650) show moderate impact, indicating Italy's less industrialized economy.
 
-- Carbon Sink: Land use/forestry (-220) provides a carbon offset.
-
+-   Carbon Sink: Land use/forestry (-220) provides a carbon offset.
 
 ## next
+
 ::: {nonincremental}
 ```{r}
 
@@ -256,8 +249,7 @@ ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))
   geom_line()
 ```
 
-
-## what percentage of Italy's energy production come form renewable sources?{.smaller}
+## what percentage of Italy's energy production come form renewable sources? {.smaller}
 
 ```{r}
 # Cleaned/filtered data  
@@ -327,21 +319,20 @@ ggplot(engery_clean, aes(
     plot.subtitle = element_text(size = 10)
 )
 ```
-- Italy's renewable electricity share has seen a steady growth from 1990 to 2022, with massive growth starting from 2008.
 
-- Italy outperforms the US, France and China, while the UK and Germany show faster renewable growth peaks. 
+-   Italy's renewable electricity share has seen a steady growth from 1990 to 2022, with massive growth starting from 2008.
 
-- Italy's progress shows commitment towards cleaner electricity usage and their transition to achieve that goal. 
+-   Italy outperforms the US, France and China, while the UK and Germany show faster renewable growth peaks.
 
-::: {.notes}
-100 word:
-This line graph showcases the percentage of electricity produced from renewable energy sources, and is compared with the UK, Germany, France, China and US from 1990 to 2022. Italy generation of renewable electricity has increased with significant acceleration beginning from 2008. Also, Italy outperforms the US, France and China but is behind Germany and UK who show faster growth. The trends suggest all countries are committed to transitioning to renewable electricity which the graph shows meaning Italy progress towards more sustainable energy is positive.
+-   Italy's progress shows commitment towards cleaner electricity usage and their transition to achieve that goal.
+
+::: notes
+100 word: This line graph showcases the percentage of electricity produced from renewable energy sources, and is compared with the UK, Germany, France, China and US from 1990 to 2022. Italy generation of renewable electricity has increased with significant acceleration beginning from 2008. Also, Italy outperforms the US, France and China but is behind Germany and UK who show faster growth. The trends suggest all countries are committed to transitioning to renewable electricity which the graph shows meaning Italy progress towards more sustainable energy is positive.
 :::
 
 ## Slide 8: Jagroop
-Pie chart - percentage of Italy's energy production for 22
-discuss the results and how it links to the public interest.
 
+Pie chart - percentage of Italy's energy production for 22 discuss the results and how it links to the public interest.
 
 discuss the results and how it links to the public interest.
 
