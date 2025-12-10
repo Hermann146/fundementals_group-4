@@ -39,9 +39,7 @@ co2_vs_renw <- read_csv("Data/co2-per-capita-vs-renewable-electricity.csv")
 
 Overview Objectives: The objective is to assess Italy's relative performance using key metrics like total emissions change , per-capita figures, and renewable energy adoption.
 
-## Slide 2:
-
-Method: Shahil
+## Method
 
 | Step | Process | Justification |
 |------------------------|------------------------|------------------------|
@@ -201,6 +199,10 @@ ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))
             aes(x = year, y = co2_from_heat_electricity),
             size = 2)
 ```
+
+::: footer{.smaller}
+Data source: Climate Watch (2025); Population based on various sources (2024)
+:::
 
 ## what percentage of Italy's energy production come form renewable sources?
 

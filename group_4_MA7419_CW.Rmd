@@ -103,7 +103,6 @@ ggplot(Data1, aes(x = Year, y = emissions_pc, color = Entity, group = Entity)) +
 Q1) How does Italy compare to ... in CO2 emissions?: graph of CO2
 emissions, 1990-2024- compare italy to UK, France, Germany, EU, US,
 China short bullet points discussing the results, link to pulic interest
->>>>>>> 873bc7a6cb42344fd980dd266b0a7b0b92a5e8a7
 
 ## Slide 5: Hermann
 
