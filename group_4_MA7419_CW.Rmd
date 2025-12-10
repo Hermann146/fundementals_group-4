@@ -81,7 +81,8 @@ ggplot(Data1, aes(x = Year, y = emissions_pc, color = Entity, group = Entity)) +
   )
 
 # Analysis 
-#Italy consistently emits less CO₂ per capita than Germany and the wider European Union average, while remaining higher than France.The United States emits nearly three times Italy’s CO2 per capita, but China follows an inverse trajectory, with rapid industrialization reaching almost 9 tonnes today.
+#Italy consistently emits less CO₂ per capita than Germany and the wider European Union average, while remaining higher than France.
+#The United States emits nearly three times Italy’s CO2 per capita, but China follows an inverse trajectory, with rapid industrialization reaching almost 9 tonnes today.
 
 
 ```
@@ -375,6 +376,12 @@ discuss the results and how it links to the public interest.
 ## Slide 9: Sahadat
 
 Q4) Italy's environmental policy campare to ....?
+
+```{r}
+library(gt)
+library(dplyr)
+```
+
 
 ## Slide 10: Hermann
 
