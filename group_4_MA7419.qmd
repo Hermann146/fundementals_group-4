@@ -203,15 +203,12 @@ ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))
 
 -   Italy’s CO2 emissions from electricity and heat showed a moderate increase between 1990 and 2006.
 
-<<<<<<< HEAD
 -   Following this period, the figures declined steadily up to 2020, before rising again from 2020 to 2022.
 
 -   Italy releases CO2 through heat and electricity less than every other country except France, and US is in peak level, which shows Italy is showing more concern towards usage of carbon electricity.
 
 ## what percentage of Italy's energy production come form renewable sources?
 
-=======
->>>>>>> 10fbbd7f77b3b5694090da30023d711c45f87a91
 ```{r}
 # Cleaned/filtered data  
 engery_clean <- co2_vs_renw |> 
@@ -284,11 +281,9 @@ ggplot(engery_clean, aes(
 
 -   Italy outperforms the US, France and China, while the UK and Germany show faster renewable growth peaks.
 
-<<<<<<< HEAD
-\<\<\<\<\<\<\< HEAD - Italy's progress shows commitment towards cleaner electricity usage and their transition to achieve that goal.
-=======
+- Italy's progress shows commitment towards cleaner electricity usage and their transition to achieve that goal.
+
 -   Italy's progress shows commitment towards cleaner electricity usage and their transition to achieve that goal.
->>>>>>> 10fbbd7f77b3b5694090da30023d711c45f87a91
 
 ::: footer{.smaller}
 Data source: Global Carbon Budget (2025) and other sources
