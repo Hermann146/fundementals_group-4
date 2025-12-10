@@ -51,9 +51,6 @@ Method: Shahil
 | **Visuals** | Implemented pie chart, line graphs and highlighted area chart based on the question while highlighting Italy. | The area chart and line chart both showcase the trends over time between the variables and the pie chart compares a single years value for Italy. |
 | **Collaboration** | Each member answered one question and created one visual based on there question. | This ensured fair workload for all members and enabled comprehensive analysis of Italy's environmental performance. |
 
-
-
-
 ## Italy's CO~2~ emissions vs its peers
 
 ```{r}
@@ -87,8 +84,8 @@ ggplot(Data1, aes(x = Year, y = emissions_pc, color = Entity, group = Entity)) +
   )
 ```
 
-- Italy consistently emits less CO₂ per capita than Germany and the wider European Union average, while remaining higher than France.
-- The United States emits nearly three times Italy’s CO2 per capita, but China follows an inverse trajectory, with rapid industrialization reaching almost 9 tonnes today.
+-   Italy consistently emits less CO₂ per capita than Germany and the wider European Union average, while remaining higher than France.
+-   The United States emits nearly three times Italy’s CO2 per capita, but China follows an inverse trajectory, with rapid industrialization reaching almost 9 tonnes today.
 
 ::: footer
 Data source: Global Carbon Budget (2025); Population based on various sources (2024)
@@ -160,11 +157,11 @@ CS3 |>
 
 ```
 
-- Emissions peaked in mid-2000s, led by electricity/heat and transport.
+-   Emissions peaked in mid-2000s, led by electricity/heat and transport.
 
-- Significant decline since then across nearly all sectors.
+-   Significant decline since then across nearly all sectors.
 
-- Trend reflects cleaner energy, efficiency gains, and economic shifts.
+-   Trend reflects cleaner energy, efficiency gains, and economic shifts.
 
 ::: footer{.smaller}
 Data source: Climate Watch (2025); Population based on various sources (2024)
@@ -193,7 +190,7 @@ ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))
        x = "", 
        y= "Per capita CO2 emissions",
        colour = "Country")+
-  theme_classic()+
+  theme_minimal()+
   theme(plot.title = element_text(face = "bold"),
         axis.title = element_text(face = "bold"))+
   geom_line(key_glyph = "timeseries",
@@ -202,8 +199,13 @@ ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))
             size = 2)
 ```
 
-## what percentage of Italy's energy production come form renewable sources?
+-   Italy’s CO2 emissions from electricity and heat showed a moderate increase between 1990 and 2006.
 
+-   Following this period, the figures declined steadily up to 2020, before rising again from 2020 to 2022.
+
+-   Italy releases CO2 through heat and electricity less than every other country except France, and US is in peak level, which shows Italy is showing more concern towards usage of carbon electricity.
+
+## what percentage of Italy's energy production come form renewable sources?
 
 ```{r}
 # Cleaned/filtered data  
@@ -268,9 +270,7 @@ ggplot(engery_clean, aes(
 
 -   Italy outperforms the US, France and China, while the UK and Germany show faster renewable growth peaks.
 
-<<<<<<< HEAD
--   Italy's progress shows commitment towards cleaner electricity usage and their transition to achieve that goal.
-
+\<\<\<\<\<\<\< HEAD - Italy's progress shows commitment towards cleaner electricity usage and their transition to achieve that goal.
 
 ::: footer{.smaller}
 Data source: Global Carbon Budget (2025) and other sources
@@ -284,7 +284,7 @@ discuss the results and how it links to the public interest.
 
 ## Slide 9: Sahadat
 
-Table of Italy's Environmental Policy Comparison 
+Table of Italy's Environmental Policy Comparison
 
 | Comparative Region | Italy's Approach | Key Differences |
 |------------------------|------------------------|------------------------|
