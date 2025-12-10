@@ -276,7 +276,6 @@ Data source: Global Carbon Budget (2025) and other sources
 
 Pie chart - percentage of Italy's energy production for 22 discuss the results and how it links to the public interest.
 
-discuss the results and how it links to the public interest.
 
 ```{r}
 electricty_pd <-  clean_names(electricty_pd)
@@ -305,32 +304,33 @@ electricty_pd_longer <- italy_electricity_pd |>
 
 colors <- c("#BD3106FF", "#D9700EFF", "#E9A00EFF", "#EEBE04FF", "#5B7314FF", "#C3D6CEFF", "#89A6BBFF", "#454B87FF")
 
-fig <- plot_ly(type='pie', labels=electricty_pd_longer$variables, values=electricty_pd_longer$values, 
+final <- plot_ly(type='pie', labels=electricty_pd_longer$variables, values=electricty_pd_longer$values, 
                textinfo='percent',
                marker = list(colors = colors),
                insidetextorientation='radial',
                textfont = list(family = "Arial",
                                size = 15,
                                color = "white"))
-fig <- fig |> add_annotations(
+final <- final |> add_annotations(
         y=1.06, 
         x=0.5, 
         text="Italy's Energy Production in 2022", 
         showarrow=F,
-        font=list(size=15)
-      )
-fig <- fig |>
+        font=list(size=15,
+                  color = "black"))
+final <- final |>
   layout(
     legend = list(
-      font = list(size = 18),
-      title = list(
-        text = "Energy Types",
-        font = list(size = 20)
-      )
-    )
-  )
-fig
+      font = list(size = 18)))
+final
+
 ```
+
+-  Italy’s strong dependence on gas keeps the country exposed to price swings and supply risks.
+
+-  Renewable energy is expanding, yet it still falls short of what’s needed to greatly reduce fossil-fuel reliance.
+
+-  The overall mix shows a nation in transition, with public interest focused on cleaner, more secure, and affordable energy.
 
 ## Slide 9: Sahadat
 
