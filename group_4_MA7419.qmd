@@ -52,7 +52,32 @@ Q1) How does Italy compare to ... in CO2 emissions?: graph of CO2 emissions, 199
 
 Q2) What is Italy's Per capita CO₂ emissions by sector?
 
+<<<<<<< HEAD
 ::: {.column width = "60%"}
+=======
+  labs(
+    title = "Comparing Italy's annual CO2 Emissions per Capita (1990 - 2024)",
+    y = "per Capita CO2 Emissions (Million Tonnes)",
+    X = "",
+    color = "Country"
+  ) +
+  
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", size = 16),
+    legend.position = "right"
+  )
+```
+
+- Italy consistently emits less CO₂ per capita than Germany and the wider European Union average, while remaining higher than France.
+- The United States emits nearly three times Italy’s CO2 per capita, but China follows an inverse trajectory, with rapid industrialization reaching almost 9 tonnes today.
+
+::: footer
+Data source: Global Carbon Budget (2025); Population based on various sources (2024)
+:::
+
+## Italy's Per capita CO₂ emissions by sector  
+>>>>>>> 5e079d8dd3f752ff7439602c14147b277cf6555a
 
 ```{r}
 
