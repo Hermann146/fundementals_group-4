@@ -34,7 +34,9 @@ Overview Objectives: The objective is to assess Italy's relative
 performance using key metrics like total emissions change, per-capita
 figures, and renewable energy adoption.
 
-## Method{.smaller}
+## Slide 3:
+Method: Shahil
+
 | Step | Process | Justification |
 |------------------------|------------------------|------------------------|
 | **Research Question** | Investigate Italy's reduction of carbon emission using key metrics like renewable electricity and emissions while comparing it. | This ensures performance is compared globally for environmental improvement which Italy made. |
@@ -50,6 +52,7 @@ This slide explains the overall process for the project with justifications for 
 
 ## Slide 4: Sahadat
 
+<<<<<<< HEAD
 Q1) How does Italy compare to ... in CO2 emissions?: 
 graph of CO2 emissions, 1990-2024- compare italy to UK, France, Germany, EU, US, China short bullet points discussing the results, link to pulic interest
 ```{r}
@@ -188,6 +191,8 @@ CS3 <- CS |> filter(entity == "Italy")
 - Mid-Tier: Buildings (890) and manufacturing (650) show moderate impact, indicating Italy's less industrialized economy.
 
 - Carbon Sink: Land use/forestry (-220) provides a carbon offset.
+
+
 
 
 ```{r}

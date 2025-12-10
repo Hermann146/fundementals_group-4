@@ -1,112 +1,20 @@
 ---
-title: "group_4_MA7419_CW"
-author: "hads2, sba11, js1392..."
-date: "2025-11-17"
-output: html_document
-editor_options: 
-  markdown: 
-    wrap: 72
+title: "How does Italy's reduction of carbon emissions compare to its region, USA and China?"
+format: revealjs
+incremental: true
+logo: CopyOfuniversity-of-leicester-logo_2.png
+css: custom.css
+editor: visual
+theme: simple
+fontsize: 1.3em
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Questions
-
 ```{r message = FALSE}
 library(readr)
-cO2_data <- read_csv("Data/co-emissions-per-capita.csv")
-electricty_pd <- read_csv("Data/electricity-prod-source-stacked.csv")
-electricity_gt <- read_csv("Data/per-capita-electricity-generation.csv")
-co2_sector <- read_csv("Data/per-capita-co2-sector.csv")
-co2_vs_renw <- read_csv("Data/co2-per-capita-vs-renewable-electricity.csv")
-```
-
-## Slide 1: Jagroop
-
-Title: How does Italy's reduction of carbon emissions compare to its
-region and USA and China?
-
-## Slide 2: Rahul
-
-Overview Objectives: The objective is to assess Italy's relative
-performance using key metrics like total emissions change, per-capita
-figures, and renewable energy adoption.
-
-## Method{.smaller}
-| Step | Process | Justification |
-|------------------------|------------------------|------------------------|
-| **Research Question** | Investigate Italy's reduction of carbon emission using key metrics like renewable electricity and emissions while comparing it. | This ensures performance is compared globally for environmental improvement which Italy made. |
-| **Data Sources** | The datasets are from Our World in Data (OWID) which all visuals have been created from. | These sources are valid because OWID is reliable, public and accessible for all countries to be compared. |
-| **Data Cleaning** | Column names are cleaned and renamed appropriately and the datasets are filtered to relevant countries and years while N/A values are removed for better comparison. | This improves consistency and accuracy increases meaning fairer comparison between all relevant countries. |
-| **Visuals** | Implemented pie chart, line graphs and highlighted area chart based on the question while highlighting Italy. | The area chart and line chart both showcase the trends over time between the variables and the pie chart compares a single years value for Italy. |
-| **Collaboration** | Each member answered one question and created one visual based on there question. | This ensured fair workload for all members and enabled comprehensive analysis of Italy's environmental performance. |
-
-100 words:
-This slide explains the overall process for the project with justifications for the methods used. In the beginning we investigated how Italy reduces their carbon emission compared to other countries like UK, France, Germany, China and US using the metrics renewable electricity share and emission. All date sources are from OWID who provide reliable and trustworthy dataset which are accessible to the public. We cleaned the data by filtering and renaming columns to specific years which ensures fair comparisons. We created different graphs like area chart, line chart and pie chart based on the question
-
-
-
-## Slide 4: Sahadat
-
-Q1) How does Italy compare to ... in CO2 emissions?: 
-graph of CO2 emissions, 1990-2024- compare italy to UK, France, Germany, EU, US, China short bullet points discussing the results, link to pulic interest
-```{r}
-
-library(ggplot2)
-library(paletteer)
-library(readr)
-library(dplyr)
-library(forcats)
-
-Data1 <- cO2_data |>
-  filter(Year >= 1990, Entity %in% c("Italy", "France", "Germany", "United Kingdom", "European Union (27)", "China", "United States")) |> 
-  rename(emissions_pc = "Annual CO₂ emissions (per capita)") |>
-  mutate(Entity = fct_reorder2(Entity, Year, emissions_pc))
-
-                             
-ggplot(Data1, aes(x = Year, y = emissions_pc, color = Entity, group = Entity)) +
-  geom_line(size = 1.2, alpha = 0.8) +
-  
-  geom_line(data = filter(Data1, Entity == "Italy"), 
-            size = 1.2, color = "Blue") +
-  geom_point(data = filter(Data1, Entity == "Italy"),
-             size = 2, color = "Blue", fill = "Blue", shape = 21) +
-  
-  scale_fill_paletteer_d("ggthemes::Tableu_10")+
-
-  labs(
-    title = "Comparing Italy's annual CO2 Emissions per Capita (1990 - 2024)",
-    y = "per Capita CO2 Emissions (Million Tonnes)",
-    X = NULL,
-    color = "Country"
-  ) +
-  
-  theme_minimal() +
-  theme(
-    plot.title = element_text(face = "bold", size = 16),
-    legend.position = "right"
-  )
-
-# Analysis 
-#Italy consistently emits less CO₂ per capita than Germany and the wider European Union average, while remaining higher than France.
-#The United States emits nearly three times Italy’s CO2 per capita, but China follows an inverse trajectory, with rapid industrialization reaching almost 9 tonnes today.
-
-
-```
-
-=======
-Q1) How does Italy compare to ... in CO2 emissions?: graph of CO2
-emissions, 1990-2024- compare italy to UK, France, Germany, EU, US,
-China short bullet points discussing the results, link to pulic interest
-
-## Slide 5: Hermann
-
-Q2) What is Italy's Per capita CO₂ emissions by sector?
-
-```{r}
-
 library(dplyr)
 library(janitor)
 library(tidyverse)
@@ -117,9 +25,77 @@ library(forcats)
 library(viridis)
 library(ggthemes)
 library(paletteer)
+library(palette)
+library(forcats)
 library(plotly)
 library(tidyr)
 
+cO2_data <- read_csv("Data/co-emissions-per-capita.csv")
+electricty_pd <- read_csv("Data/electricity-prod-source-stacked.csv")
+electricity_gt <- read_csv("Data/per-capita-electricity-generation.csv")
+co2_sector <- read_csv("Data/per-capita-co2-sector.csv")
+co2_vs_renw <- read_csv("Data/co2-per-capita-vs-renewable-electricity.csv")
+```
+
+## Slide 1: Rahul
+
+Overview Objectives: The objective is to assess Italy's relative performance using key metrics like total emissions change , per-capita figures, and renewable energy adoption.
+
+## Method
+
+| Step | Process | Justification |
+|------------------------|------------------------|------------------------|
+| **Research Question** | Investigate Italy's reduction of carbon emission using key metrics like renewable electricity and emissions while comparing it. | This ensures performance is compared globally for environmental improvement which Italy made. |
+| **Data Sources** | The datasets are from Our World in Data (OWID) which all visuals have been created from. | These sources are valid because OWID is reliable, public and accessible for all countries to be compared. |
+| **Data Cleaning** | Column names are cleaned and renamed appropriately and the datasets are filtered to relevant countries and years while N/A values are removed for better comparison. | This improves consistency and accuracy increases meaning fairer comparison between all relevant countries. |
+| **Visuals** | Implemented pie chart, line graphs and highlighted area chart based on the question while highlighting Italy. | The area chart and line chart both showcase the trends over time between the variables and the pie chart compares a single years value for Italy. |
+| **Collaboration** | Each member answered one question and created one visual based on there question. | This ensured fair workload for all members and enabled comprehensive analysis of Italy's environmental performance. |
+
+## Italy's CO~2~ emissions vs its peers
+
+```{r}
+Data1 <- cO2_data |>
+  filter(Year >= 1990, Entity %in% c("Italy", "France", "Germany", "United Kingdom", "European Union (27)", "China", "United States")) |> 
+  rename(emissions_pc = "Annual CO₂ emissions (per capita)") |>
+  mutate(Entity = fct_reorder2(Entity, Year, emissions_pc))
+
+                             
+ggplot(Data1, aes(x = Year, y = emissions_pc, color = Entity, group = Entity)) +
+  geom_line(size = 1.2, alpha = 0.8) +
+  
+  geom_line(data = filter(Data1, Entity == "Italy"), 
+            size = 1.4) +
+  geom_point(data = filter(Data1, Entity == "Italy"),
+             size = 2.2) +
+  
+  scale_color_brewer(palette = "Dark2") +
+
+  labs(
+    title = "Comparing Italy's annual CO2 Emissions per Capita (1990 - 2024)",
+    y = "per Capita CO2 Emissions (Million Tonnes)",
+    X = "",
+    color = "Country"
+  ) +
+  
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", size = 16),
+    legend.position = "right"
+  )
+```
+
+-   Italy consistently emits less CO₂ per capita than Germany and the wider European Union average, while remaining higher than France.
+-   The United States emits nearly three times Italy’s CO2 per capita, but China follows an inverse trajectory, with rapid industrialization reaching almost 9 tonnes today.
+
+::: footer
+Data source: Global Carbon Budget (2025); Population based on various sources (2024)
+:::
+
+## Italy's Per capita CO₂ emissions by sector
+
+```{r}
+
+  
 co2_sector <- clean_names(co2_sector, case = "snake") 
 clCo2 <- co2_sector |> select(-per_capita_fugitive_emissions_of_carbon_dioxide_from_energy_production)
 
@@ -148,138 +124,13 @@ CS <- CS |> pivot_longer(cols = c("Buildings",
   mutate(emission= round_half_up(emission, -1)) |> 
   arrange(desc(emission))
 
-CS2 <- CS |> filter(year == 2022, code == "ITA") 
-
-
-CS2 |> 
-  filter(!is.na(emission)) |> 
-  mutate(sector = fct_reorder(sector, emission)) |> 
-  ggplot( aes(x=sector, y=emission,fill= sector)) +
-  geom_bar(stat="identity", 
-           alpha=.8, 
-           width=.6, 
-           colour = "black", 
-           lineend =  "round", 
-           linejoin = "mitre") +
-  geom_text(aes(label = emission), hjust = "left", nudge_y = 12) +
-  guides(fill="none") +
-  coord_flip() +
-  scale_fill_paletteer_d("ggthemes::Tableau_10") +
-  theme(plot.background = element_rect(fill = "white"))+
-  theme(axis.text.x = element_text(size = 8, face = "bold"),
-        axis.text.y = element_text(size = 8, face = "bold"))+
-  theme_minimal(base_size = 10, base_family = "sans")+
-  labs(title = "Italy's 2022 CO2 emissions (kg) per capita by sector",
-     x = "Emissions (Kg)",
-     y = "Emissions (Kg)")
-
 CS3 <- CS |> filter(entity == "Italy")
 
-# 
-# ggplot(CS3, aes(x=sector, y=emission, fill=sector)) +
-#   geom_bar(stat='identity') +
-#   guides(fill="none") +
-#   theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
-
 ```
 
-- Top Emitters: Electricity/heat (1,790) and transport (1,740) account for ~50% of emissions. Energy use and mobility are key targets.
-
-- Mid-Tier: Buildings (890) and manufacturing (650) show moderate impact, indicating Italy's less industrialized economy.
-
-- Carbon Sink: Land use/forestry (-220) provides a carbon offset.
-
-
 ```{r}
-
-
 latest <- CS3 |> filter(year == max(year)) |> arrange(desc(emission))
 CS3$sector <- factor(CS3$sector, levels = latest$sector)
-
-ani <- ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
-
-ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
-
-  geom_line()+
-  geom_point() +
-  labs(title = "Italy's per capita CO2 emissions by sector",
-     x = "",
-     y = "Emissions (kg per capita)",
-     )+
-  labs(subtitle = "1990–2022")+
-  scale_colour_manual(values = c(
-  "electricity and heat" = "brown",
-  "emissions from transport" = "darkgreen",
-  "Buildings" = "darkblue",
-  "manufacturing and construction" = "red",
-  "bunker fuels" = "purple",
-  "industry" = "orange",
-  "other fuel combustion" = "#4575b4",
-  "land use change and forestry" = "chocolate"
-))+
-  theme_minimal(base_size = 9, base_family = "sans")+
-  scale_x_continuous(breaks = seq(1990, 2022, 5)) +
-  theme(plot.background = element_rect(fill = "white"))+
-  theme(axis.text.x = element_text(size = 8, face = "bold"),
-        axis.text.y = element_text(size = 8, face = "bold"), 
-        axis.title.y = element_text(size = 8, face = "bold"),
-        plot.title = element_text(size = 12, face = "bold", color = "brown"),
-        legend.title = element_text(family = "Roboto",
-                                    face = "bold",
-                                    size = 8),
-        legend.text  = element_text(size = 8))+
-  theme(legend.position = "right")+
-  transition_reveal(year) 
-
-animate(
-  ani,
-  fps = 25,
-  duration = 12,
-  end_pause = 220
-)
-
-```
-:::
-
-## version 2
-
-```{r}
-ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
-  geom_line()+
-  geom_point() +
-  labs(title = "Italy's per capita CO2 emissions by sector",
-     x = "",
-     y = "Emissions (kg per capita)",
-     )+
-  labs(subtitle = "1990–2022")+
-  scale_colour_manual(values = c(
-  "electricity and heat" = "brown",
-  "emissions from transport" = "darkgreen",
-  "Buildings" = "darkblue",
-  "manufacturing and construction" = "red",
-  "bunker fuels" = "purple",
-  "industry" = "orange",
-  "other fuel combustion" = "#4575b4",
-  "land use change and forestry" = "chocolate"
-))+
-  theme_minimal(base_size = 9, base_family = "sans")+
-  scale_x_continuous(breaks = seq(1990, 2022, 5)) +
-  theme(plot.background = element_rect(fill = "white"))+
-  theme(axis.text.x = element_text(size = 8, face = "bold"),
-        axis.text.y = element_text(size = 8, face = "bold"), 
-        axis.title.y = element_text(size = 8, face = "bold"),
-        plot.title = element_text(size = 12, face = "bold", color = "brown"),
-        legend.title = element_text(family = "Roboto",
-                                    face = "bold",
-                                    size = 8),
-        legend.text  = element_text(size = 6))+
-  theme(legend.position = "right")
-```
-
-## version 3
-
-```{r}
-
 
 CS3 |> 
   ggplot(aes(x = year, y = emission, fill = sector)) +
@@ -298,7 +149,7 @@ CS3 |>
   theme(
     legend.position = "right",
     legend.title = element_text(size = 9, face = "bold"),
-    legend.text  = element_text(size = 6),
+    legend.text  = element_text(size = 8,face = "bold"),
     plot.title = element_text(size = 16, face = "bold", colour = "chocolate4"),
     plot.subtitle = element_text(size = 11),
     axis.title.y = element_text(size = 10),
@@ -306,12 +157,19 @@ CS3 |>
     axis.text.y = element_text(size = 8, face = "bold")
   )
 
-
 ```
-## Slide 6: Rahul
 
-line graph of electricity and heat production for Italy vs .... discuss
-the reulst and link to public interest
+-   Emissions peaked in mid-2000s, led by electricity/heat and transport.
+
+-   Significant decline since then across nearly all sectors.
+
+-   Trend reflects cleaner energy, efficiency gains, and economic shifts.
+
+::: footer{.smaller}
+Data source: Climate Watch (2025); Population based on various sources (2024)
+:::
+
+## Electricity and heat production for Italy vs its peers
 
 ```{r}
 library(dplyr)
@@ -343,13 +201,11 @@ ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))
             size = 2)
 ```
 
+::: footer{.smaller}
+Data source: Climate Watch (2025); Population based on various sources (2024)
+:::
 
-## Slide 7: SHahil maybe
-
-Q3) what percentage of Italy's energy production come form renewable
-sources?
-
-Line graph - percentage of Italy's energy production for 1990-2022
+## what percentage of Italy's energy production come form renewable sources?
 
 ```{r}
 # Cleaned/filtered data  
@@ -367,15 +223,6 @@ engery_clean <- co2_vs_renw |>
   ) |> 
   filter(!is.na(renewables_percent_electricity))
 
-# Checking if all country have full coverage for the years
-engery_clean |> 
-  group_by(entity) |> 
-  summarise(
-    min_year = min(year),
-    max_year = max(year),
-    n = n()
-  )
-View(engery_clean)
 ```
 
 ```{r}
@@ -408,7 +255,6 @@ ggplot(engery_clean, aes(
     y = "Renewable Share of Electricity",
     subtitle = "Italy compared with UK, France, Germany, China and US",
     colour = "Country",
-    caption = "Data source: Global Carbon Budget (2025) and other sources"
   ) +
   scale_color_brewer(palette = "Dark2") +
   theme_minimal(base_size = 14) +
@@ -419,23 +265,21 @@ ggplot(engery_clean, aes(
     plot.subtitle = element_text(size = 10)
 )
 ```
-- Italy's renewable electricity share has seen a steady growth from 1990 to 2022, with massive growth starting from 2008.
 
-- Italy outperforms the US, France and China, while the UK and Germany show faster renewable growth peaks. 
+-   Italy's renewable electricity share has seen a steady growth from 1990 to 2022, with massive growth starting from 2008.
 
-- Italy's progress shows commitment towards cleaner electricity usage and their transition to achieve that goal. 
+-   Italy outperforms the US, France and China, while the UK and Germany show faster renewable growth peaks.
 
-100 word:
-This line graph showcases the percentage of electricity produced from renewable energy sources, and is compared with the UK, Germany, France, China and US from 1990 to 2022. Italy generation of renewable electricity has increased with significant acceleration beginning from 2008. Also, Italy outperforms the US, France and China but is behind Germany and UK who show faster growth. The trends suggest all countries are committed to transitioning to renewable electricity which the graph shows meaning Italy progress towards more sustainable energy is positive.
+-   Italy's progress shows commitment towards cleaner electricity usage and their transition to achieve that goal.
 
+::: footer{.smaller}
+Data source: Global Carbon Budget (2025) and other sources
+:::
 
-## Percentage of Italy's energy production
+## Percentage of Italy's energy production 
 
 ```{r}
-
 electricty_pd <-  clean_names(electricty_pd)
-
-
 
 clean_electricity_pd <- electricty_pd |> 
   rename(
@@ -469,7 +313,7 @@ fig <- plot_ly(type='pie', labels=electricty_pd_longer$variables, values=electri
                                size = 15,
                                color = "white"))
 fig <- fig |> add_annotations(
-        y=1.05, 
+        y=1.06, 
         x=0.5, 
         text="Italy's Energy Production in 2022", 
         showarrow=F,
@@ -490,7 +334,7 @@ fig
 
 ## Slide 9: Sahadat
 
-Table of Italy's Environmental Policy Comparison 
+Table of Italy's Environmental Policy Comparison
 
 | Comparative Region | Italy's Approach | Key Differences |
 |------------------------|------------------------|------------------------|
@@ -499,8 +343,6 @@ Table of Italy's Environmental Policy Comparison
 | **USA** | Italy relies on Carbon Pricing and regulation ("Sticks"); the USA relies on uncapped Subsidies/IRA ("Carrots"). | Regulation vs. Incentive |
 | **China** | Italy has falling emissions but slow democratic permitting whereas China has rising emissions but rapid, state-mandated infrastructure build out. | Democratic Process vs. Command & Control. |
 
-
 ## Slide 10: Hermann
 
 Conclusion
-
