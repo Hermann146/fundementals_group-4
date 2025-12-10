@@ -16,7 +16,7 @@ Questions
 
 ```{r message = FALSE}
 library(readr)
-emissions_pc <- read_csv("Data/co-emissions-per-capita.csv")
+cO2_data <- read_csv("Data/co-emissions-per-capita.csv")
 electricty_pd <- read_csv("Data/electricity-prod-source-stacked.csv")
 electricity_gt <- read_csv("Data/per-capita-electricity-generation.csv")
 co2_sector <- read_csv("Data/per-capita-co2-sector.csv")
@@ -40,9 +40,57 @@ Method: Shahil
 
 ## Slide 4: Sahadat
 
+<<<<<<< HEAD
+Q1) How does Italy compare to ... in CO2 emissions?: 
+graph of CO2 emissions, 1990-2024- compare italy to UK, France, Germany, EU, US, China short bullet points discussing the results, link to pulic interest
+```{r}
+
+library(ggplot2)
+library(paletteer)
+library(readr)
+library(dplyr)
+library(forcats)
+
+Data1 <- cO2_data |>
+  filter(Year >= 1990, Entity %in% c("Italy", "France", "Germany", "United Kingdom", "European Union (27)", "China", "United States")) |> 
+  rename(emissions_pc = "Annual CO₂ emissions (per capita)") |>
+  mutate(Entity = fct_reorder2(Entity, Year, emissions_pc))
+
+                             
+ggplot(Data1, aes(x = Year, y = emissions_pc, color = Entity, group = Entity)) +
+  geom_line(size = 1.2, alpha = 0.8) +
+  
+  geom_line(data = filter(Data1, Entity == "Italy"), 
+            size = 1.2, color = "Blue") +
+  geom_point(data = filter(Data1, Entity == "Italy"),
+             size = 2, color = "Blue", fill = "Blue", shape = 21) +
+  
+  scale_fill_paletteer_d("ggthemes::Tableu_10")+
+
+  labs(
+    title = "Comparing Italy's annual CO2 Emissions per Capita (1990 - 2024)",
+    y = "per Capita CO2 Emissions (Million Tonnes)",
+    X = NULL,
+    color = "Country"
+  ) +
+  
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", size = 16),
+    legend.position = "right"
+  )
+
+# Analysis 
+# Italy occupies a "middle ground" among major European economies, consistently emitting less CO₂ per person than Germany and the wider European Union average, while remaining higher than France. Although Italy generally mirrors the EU’s aggregate downward trend, dropping from ~7.5 to ~5 tonnes per capita.
+#The United States operates on a vastly larger scale, emitting nearly triple Italy’s per capita volume (~14 vs. ~5 tonnes). However, China follows an inverse trajectory, fueled by rapid industrialization. It surged from ~2 tonnes in 1990 to overtake Italy’s declining path around 2012, reaching nearly 9 tonnes today.
+
+```
+
+=======
 Q1) How does Italy compare to ... in CO2 emissions?: graph of CO2
 emissions, 1990-2024- compare italy to UK, France, Germany, EU, US,
 China short bullet points discussing the results, link to pulic interest
+>>>>>>> 873bc7a6cb42344fd980dd266b0a7b0b92a5e8a7
 
 ## Slide 5: Hermann
 
@@ -130,14 +178,18 @@ CS3 <- CS |> filter(entity == "Italy")
 - Carbon Sink: Land use/forestry (-220) provides a carbon offset.
 
 
-## next
-::: {nonincremental}
+
+
 ```{r}
+
 
 latest <- CS3 |> filter(year == max(year)) |> arrange(desc(emission))
 CS3$sector <- factor(CS3$sector, levels = latest$sector)
 
 ani <- ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
+
+ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
+
   geom_line()+
   geom_point() +
   labs(title = "Italy's per capita CO2 emissions by sector",
@@ -251,7 +303,7 @@ CS3 |>
 line graph of electricity and heat production for Italy vs .... discuss
 the reulst and link to public interest
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 library(dplyr)
 library(ggplot2)
 elec_heat <- co2_sector |> 
@@ -260,7 +312,8 @@ elec_heat <- co2_sector |>
   select(Country,Code,Year,co2_from_heat_electricity)
 
 ggplot(elec_heat, aes(x = Year, y = co2_from_heat_electricity, color = Country))+
-  geom_line()
+  geom_line()+
+  labs(title = "Per capita CO2 emissions from electricity and heat",subtitle = "Countries compared with Italy: France, Germany, UK, US, China and Europian Union", x = "", y= "Per capita CO2 emissions")
 ```
 
 
