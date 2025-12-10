@@ -381,6 +381,17 @@ engery_clean |>
     max_year = max(year),
     n = n()
   )
+
+ # Range the countries to match the legend
+engery_clean <- engery_clean |>
+  mutate(
+    entity = factor(
+      entity,
+      level = c("Germany", "United Kingdom","Italy","China","France", "United States" )
+    )
+  )
+
+
 View(engery_clean)
 ```
 

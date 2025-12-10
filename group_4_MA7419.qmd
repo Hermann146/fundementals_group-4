@@ -219,6 +219,15 @@ engery_clean <- co2_vs_renw |>
   ) |> 
   filter(!is.na(renewables_percent_electricity))
 
+ # Arrange the countries to match the legend
+engery_clean <- engery_clean |>
+  mutate(
+    entity = factor(
+      entity,
+      level = c("Germany", "United Kingdom","Italy","China","France", "United States" )
+    )
+  )
+
 ```
 
 ```{r}
@@ -247,7 +256,7 @@ ggplot(engery_clean, aes(
   ) +
   labs(
     title = "Renewable Electricity  (1990-2022)",
-    x = "Year",
+    x = "",
     y = "Renewable Share of Electricity",
     subtitle = "Italy compared with UK, France, Germany, China and US",
     colour = "Country",
