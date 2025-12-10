@@ -46,7 +46,7 @@ Method: Shahil
 | **Collaboration** | Each member answered one question and created one visual based on there question. | This ensured fair workload for all members and enabled comprehensive analysis of Italy's environmental performance. |
 
 100 words:
-This slide explains the overall process for the project with justifications for the methods used. In the beginning we investigated how Italy reduces their carbon emission compared to other countries like UK, France, Germany, China and US using the metrics renewable electricity share and emission. All date sources are from OWID who provide reliable and trustworthy dataset which are accessible to the public. We cleaned the data by filtering and renaming columns to specific years which ensures fair comparisons. We created different graphs like area chart, line chart and pie chart based on the question.
+This slide explains the overall process for the project with justifications for the methods used. In the beginning we investigated how Italy reduces their carbon emission compared to other countries like UK, France, Germany, China and US using the metrics renewable electricity share and emission. All date sources are from OWID who provide reliable and trustworthy dataset which are accessible to the public. We cleaned the data by filtering and renaming columns to specific years which ensures fair comparisons. We created different graphs like area chart, line chart and pie chart based on the question
 
 
 
