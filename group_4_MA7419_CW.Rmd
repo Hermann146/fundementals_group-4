@@ -93,7 +93,8 @@ ggplot(Data1, aes(x = Year, y = emissions_pc, color = Entity, group = Entity)) +
   )
 
 # Analysis 
-#Italy consistently emits less CO₂ per capita than Germany and the wider European Union average, while remaining higher than France.The United States emits nearly three times Italy’s CO2 per capita, but China follows an inverse trajectory, with rapid industrialization reaching almost 9 tonnes today.
+#Italy consistently emits less CO₂ per capita than Germany and the wider European Union average, while remaining higher than France.
+#The United States emits nearly three times Italy’s CO2 per capita, but China follows an inverse trajectory, with rapid industrialization reaching almost 9 tonnes today.
 
 
 ```
@@ -318,7 +319,7 @@ CS3 |>
 line graph of electricity and heat production for Italy vs .... discuss
 the reulst and link to public interest
 
-```{r warning=FALSE, message=FALSE}
+```{r}
 library(dplyr)
 library(ggplot2)
 elec_heat <- co2_sector |> 
@@ -333,10 +334,19 @@ max_elec_heat <- elec_heat |>
 elec_heat$country <- factor(elec_heat$country, levels = max_elec_heat$country)
 
 ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))+
-  geom_line(key_glyph = "timeseries",size=1.3)+
-  labs(title = "Per capita CO2 emissions from electricity and heat",subtitle = "Italy compared with UK, France, Germany, China and US", x = "", y= "Per capita CO2 emissions")+
+  geom_line(key_glyph = "timeseries",size=1.3, alpha = .5)+
+  labs(title = "Per capita CO2 emissions from electricity and heat",
+       subtitle = "Italy compared with UK, France, Germany, China and US", 
+       x = "", 
+       y= "Per capita CO2 emissions",
+       colour = "Country")+
   theme_classic()+
-  theme(plot.title = )
+  theme(plot.title = element_text(face = "bold"),
+        axis.title = element_text(face = "bold"))+
+  geom_line(key_glyph = "timeseries",
+            data = elec_heat |> filter(country=="Italy"),
+            aes(x = year, y = co2_from_heat_electricity),
+            size = 2)
 ```
 
 
@@ -491,7 +501,15 @@ fig
 
 ## Slide 9: Sahadat
 
-Q4) Italy's environmental policy campare to ....?
+Table of Italy's Environmental Policy Comparison 
+
+| Comparative Region | Italy's Approach | Key Differences |
+|------------------------|------------------------|------------------------|
+| **(GE, FR, UK)** | Italy is the Circular Economy leader (recycling efficiency) but trails in renewable installation speed due to bureaucracy. | Resource Efficiency vs. Decarbonization Speed |
+| **European Union** | Italy aligns with EU goals (PNIEC) but resists strict EV-only mandates, favouring "tech neutrality" (biofuels). | National Flexibility vs. Bloc Targets |
+| **USA** | Italy relies on Carbon Pricing and regulation ("Sticks"); the USA relies on uncapped Subsidies/IRA ("Carrots"). | Regulation vs. Incentive |
+| **China** | Italy has falling emissions but slow democratic permitting whereas China has rising emissions but rapid, state-mandated infrastructure build out. | Democratic Process vs. Command & Control. |
+
 
 ## Slide 10: Hermann
 
