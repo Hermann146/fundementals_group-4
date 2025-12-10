@@ -57,10 +57,7 @@ Q1) How does Italy compare to ... in CO2 emissions?:
 graph of CO2 emissions, 1990-2024- compare italy to UK, France, Germany, EU, US,
 China short bullet points discussing the results, link to pulic interest
 
-## Slide 5: Hermann 
-
-Q2) What is Italy's Per capita CO₂ emissions by sector? 
-
+## Italy's Per capita CO₂ emissions by sector  
 
 ```{r}
 
@@ -172,8 +169,8 @@ ani <- ggplot(CS3, aes(x = year, y = emission, colour = sector)) +
 animate(
   ani,
   fps = 25,
-  duration = 10,
-  end_pause = 200
+  duration = 12,
+  end_pause = 220
 )
 
 ```
@@ -247,17 +244,99 @@ CS3 |>
 
 ```
 
-## Slide 6: Rahul
+## Electricity and heat production for Italy vs ....
 
-line graph of electricity and heat production for Italy vs ....
-discuss the reulst and link to public interest 
+```{r}
+elec_heat <- co2_sector |> 
+  rename(country = entity, co2_from_heat_electricity = per_capita_carbon_dioxide_emissions_from_electricity_and_heat) |>
+  filter(country %in% c("Italy", "European Union (27)", "France", "Germany", "China", "United States", "United Kingdom")) |>
+  select(country,code,year,co2_from_heat_electricity)
 
-## Slide 7: SHahil
+ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))+
+  geom_line()
+```
 
-Q3) what percentage of Italy's energy production come form renewable
-sources?
 
-Line graph - percentage of Italy's energy production for 1990-2022
+## what percentage of Italy's energy production come form renewable sources?{.smaller}
+
+```{r}
+# Cleaned/filtered data  
+engery_clean <- co2_vs_renw |> 
+  clean_names() |> 
+  select(
+    entity,
+    year,
+    annual_co2_emissions_per_capita,
+    renewables_percent_electricity
+  ) |> 
+  filter(
+    entity %in% c("Italy","United Kingdom", "France","China", "United States", "Germany"),
+    year >= 1990 & year <= 2022 
+  ) |> 
+  filter(!is.na(renewables_percent_electricity))
+
+# Checking if all country have full coverage for the years
+# engery_clean |> 
+#   group_by(entity) |> 
+#   summarise(
+#     min_year = min(year),
+#     max_year = max(year),
+#     n = n()
+#   )
+
+```
+
+```{r}
+# Plotting  
+ggplot(engery_clean, aes(
+  x = year ,
+  y = renewables_percent_electricity,
+  colour = entity
+)) +
+  geom_line( 
+    size = 1) +
+  
+  geom_point(size = 1.5, alpha = 1) +
+  
+  geom_line(
+    data = engery_clean |> filter(entity == "Italy"),
+    aes(x = year,
+        y = renewables_percent_electricity),
+    linewidth = 1.5,
+  ) +
+  geom_point(
+    data = engery_clean |> filter(entity == "Italy"),
+    aes(x = year,
+        y = renewables_percent_electricity),
+    size = 2.2
+  ) +
+  labs(
+    title = "Renewable Electricity  (1990-2022)",
+    x = "Year",
+    y = "Renewable Share of Electricity",
+    subtitle = "Italy compared with UK, France, Germany, China and US",
+    colour = "Country",
+    caption = "Data source: Global Carbon Budget (2025) and other sources"
+  ) +
+  scale_color_brewer(palette = "Dark2") +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    axis.title = element_text(face = "bold"),
+    legend.title = element_text(face = "bold"),
+    plot.subtitle = element_text(size = 10)
+)
+```
+- Italy's renewable electricity share has seen a steady growth from 1990 to 2022, with massive growth starting from 2008.
+
+- Italy outperforms the US, France and China, while the UK and Germany show faster renewable growth peaks. 
+
+- Italy's progress shows commitment towards cleaner electricity usage and their transition to achieve that goal. 
+
+::: {.notes}
+100 word:
+This line graph showcases the percentage of electricity produced from renewable energy sources, and is compared with the UK, Germany, France, China and US from 1990 to 2022. Italy generation of renewable electricity has increased with significant acceleration beginning from 2008. Also, Italy outperforms the US, France and China but is behind Germany and UK who show faster growth. The trends suggest all countries are committed to transitioning to renewable electricity which the graph shows meaning Italy progress towards more sustainable energy is positive.
+:::
 
 ## Slide 8: Jagroop
 Pie chart - percentage of Italy's energy production for 22
