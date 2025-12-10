@@ -81,8 +81,8 @@ ggplot(Data1, aes(x = Year, y = emissions_pc, color = Entity, group = Entity)) +
   )
 
 # Analysis 
-# Italy occupies a "middle ground" among major European economies, consistently emitting less CO₂ per person than Germany and the wider European Union average, while remaining higher than France. Although Italy generally mirrors the EU’s aggregate downward trend, dropping from ~7.5 to ~5 tonnes per capita.
-#The United States operates on a vastly larger scale, emitting nearly triple Italy’s per capita volume (~14 vs. ~5 tonnes). However, China follows an inverse trajectory, fueled by rapid industrialization. It surged from ~2 tonnes in 1990 to overtake Italy’s declining path around 2012, reaching nearly 9 tonnes today.
+#Italy consistently emits less CO₂ per capita than Germany and the wider European Union average, while remaining higher than France.The United States emits nearly three times Italy’s CO2 per capita, but China follows an inverse trajectory, with rapid industrialization reaching almost 9 tonnes today.
+
 
 ```
 
