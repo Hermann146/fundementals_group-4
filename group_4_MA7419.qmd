@@ -236,6 +236,7 @@ engery_clean <- engery_clean |>
 
 ```
 
+
 ```{r}
 # Plotting  
 ggplot(engery_clean, aes(

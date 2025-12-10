@@ -38,7 +38,7 @@ figures, and renewable energy adoption.
 2. What is Italy's Per capita CO₂ emissions by sector?
 - 3 different graphs - bar, line, area
 3. Italys per capita emissions through heat and electricity - 1 line chart
-4. 
+4. Italys energy production in 2022 - 1 pie chart
 
 
 ## Slide 3:
@@ -441,17 +441,16 @@ This line graph showcases the percentage of electricity produced from renewable 
 
 
 ## Slide 8: Jagroop
-<<<<<<< HEAD
 Pie chart - percentage of Italy's energy production for 22
 discuss the results and how it links to the public interest.
 ```{r}
 
 electricty_pd <-  clean_names(electricty_pd)
-=======
 
-Pie chart - percentage of Italy's energy production for 22 discuss the
-results and how it links to the public interest.
->>>>>>> c03240bbed13c1c36c59b2f2ad3b4a770565ea5e
+
+#Pie chart - percentage of Italy's energy production for 22 discuss the
+#results and how it links to the public interest.
+
 
 clean_electricity_pd <- electricty_pd |> 
   rename(
