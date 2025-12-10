@@ -237,7 +237,6 @@ ggplot(engery_clean, aes(
 
 -   Italy outperforms the US, France and China, while the UK and Germany show faster renewable growth peaks.
 
-<<<<<<< HEAD
 -   Italy's progress shows commitment towards cleaner electricity usage and their transition to achieve that goal.
 
 
