@@ -35,8 +35,20 @@ performance using key metrics like total emissions change, per-capita
 figures, and renewable energy adoption.
 
 ## Slide 3:
-
 Method: Shahil
+
+| Step | Process | Justification |
+|------------------------|------------------------|------------------------|
+| **Research Question** | Investigate Italy's reduction of carbon emission using key metrics like renewable electricity and emissions while comparing it. | This ensures performance is compared globally for environmental improvement which Italy made. |
+| **Data Sources** | The datasets are from Our World in Data (OWID) which all visuals have been created from. | These sources are valid because OWID is reliable, public and accessible for all countries to be compared. |
+| **Data Cleaning** | Column names are cleaned and renamed appropriately and the datasets are filtered to relevant countries and years while N/A values are removed for better comparison. | This improves consistency and accuracy increases meaning fairer comparison between all relevant countries. |
+| **Visuals** | Implemented pie chart, line graphs and highlighted area chart based on the question while highlighting Italy. | The area chart and line chart both showcase the trends over time between the variables and the pie chart compares a single years value for Italy. |
+| **Collaboration** | Each member answered one question and created one visual based on there question. | This ensured fair workload for all members and enabled comprehensive analysis of Italy's environmental performance. |
+
+100 words:
+This slide explains the overall process for the project with justifications for the methods used. In the beginning we investigated how Italy reduces their carbon emission compared to other countries like UK, France, Germany, China and US using the metrics renewable electricity share and emission. All date sources are from OWID who provide reliable and trustworthy dataset which are accessible to the public. We cleaned the data by filtering and renaming columns to specific years which ensures fair comparisons. We created different graphs like area chart, line chart and pie chart based on the question.
+
+
 
 ## Slide 4: Sahadat
 
@@ -308,14 +320,21 @@ the reulst and link to public interest
 library(dplyr)
 library(ggplot2)
 elec_heat <- co2_sector |> 
-  rename(Country = Entity, co2_from_heat_electricity = `Per capita carbon dioxide emissions from electricity and heat`) |>
-  filter(Country %in% c("Italy", "European Union (27)", "France", "Germany", "China", "United States", "United Kingdom")) |>
-  select(Country,Code,Year,co2_from_heat_electricity)
+  rename(country = entity, co2_from_heat_electricity = per_capita_carbon_dioxide_emissions_from_electricity_and_heat) |>
+  filter(country %in% c("Italy", "European Union (27)", "France", "Germany", "China", "United States", "United Kingdom")) |>
+  select(country,code,year,co2_from_heat_electricity)
 
-ggplot(elec_heat, aes(x = Year, y = co2_from_heat_electricity, color = Country))+
-  geom_line()+
-  labs(title = "Per capita CO2 emissions from electricity and heat",subtitle = "Countries compared with Italy: France, Germany, UK, US, China and Europian Union", x = "", y= "Per capita CO2 emissions")+
-  theme_classic()
+max_elec_heat <- elec_heat |>
+  filter(year == max(year))|>
+  arrange(desc(co2_from_heat_electricity))
+
+elec_heat$country <- factor(elec_heat$country, levels = max_elec_heat$country)
+
+ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))+
+  geom_line(key_glyph = "timeseries",size=1.3)+
+  labs(title = "Per capita CO2 emissions from electricity and heat",subtitle = "Italy compared with UK, France, Germany, China and US", x = "", y= "Per capita CO2 emissions")+
+  theme_classic()+
+  theme(plot.title = )
 ```
 
 
