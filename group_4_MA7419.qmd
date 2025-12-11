@@ -369,7 +369,7 @@ graph <- graph |>  add_pie(data = l_china_electricty_pd, labels = ~variables, va
 graph <- graph |> add_annotations(
         y=1.06,
         x=0.5,
-        text="Italy's Energy Production in 2022",
+        text="Comparing Italy's Energy Production to other countries in 2022",
         showarrow=F,
         font=list(size=15,
                   color = "black"))
