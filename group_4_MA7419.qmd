@@ -184,11 +184,6 @@ Data source: Climate Watch (2025); Population based on various sources (2024)
 c2 <- CS |> filter(entity %in% c("Italy", "European Union (27)", "China", "United States"),
                    sector %in% c("electricity and heat","industry", "emissions from transport", "buildings"))
 
-# maxt <- c2 |>
-#   filter(year == max(year))|>
-#   arrange(desc(emission))
-# c2$entity <- factor(c2$entity, levels = maxt$entity)
-                   
 ggplot(c2, aes(x = year, y = emission, color = entity))+
   geom_line(key_glyph = "timeseries",size=1.3, alpha = .5)+
   labs(title = "Per capita CO2 emissions from various sectors",
@@ -298,14 +293,7 @@ ggplot(engery_clean, aes(
 Data source: Global Carbon Budget (2025) and other sources
 :::
 
-<<<<<<< HEAD
 ## Percentage of Italy's energy production{.smaller}
-=======
-## Percentage of Italy's energy production
-
-Pie chart - percentage of Italy's energy production for 22 discuss the results and how it links to the public interest. \## Percentage of Italy's energy production {.smaller}
->>>>>>> eca95f34633e7ca3bb86b7eee6ef6dc4a191658d
-
 ```{r}
 electricty_pd <-  clean_names(electricty_pd)
 
@@ -395,7 +383,6 @@ graph <- graph |> layout(annotations = list(
 graph
 
 ```
-
 ::: footer
 Data source: Ember (2025); Energy Institute - Statistical Review of World Energy (2025) 
 :::
@@ -405,7 +392,7 @@ Data source: Ember (2025); Energy Institute - Statistical Review of World Energy
 
 -   Although Italy produces more energy from renewable sources than the US and China, and a share similar to the EU, it still relies primarily on gas for its overall energy production.
 
-## Slide 9: Sahadat
+## Environmental policy
 
 Table of Italy's Environmental Policy Comparison
 
@@ -417,12 +404,12 @@ Table of Italy's Environmental Policy Comparison
 
 ## Conclusion
 
-- Italy has successfully reduced carbon emissions, showing a clear downward long-term trend.
+- Italy’s emissions have declined steadily across sectors, unlike the USA and China, where declines are slower or inconsistent.
 
-- Its reduction pace is stronger than many EU peers, though not the fastest in Western Europe.
+- Italy’s per-capita emissions are among the lowest in its comparison group, below the EU average and far below the USA and China.
 
-- Compared with the USA, Italy relies more on regulation and carbon pricing rather than subsidies.
+- Growth in renewable electricity is strong, outpacing the USA and China and closely tracking EU progress.
 
-- Compared with China, Italy cuts emissions more consistently but lacks China’s rapid large-scale infrastructure deployment.
+- Italy’s energy mix is cleaner than its peers due to low coal use and strong hydro/solar contributions.
 
-- Overall: Italy performs relatively well, but future progress requires faster decarbonisation in transport and buildings.
+- Overall: Italy is reducing emissions more sustainably and consistently than the USA and China, and broadly aligns with the EU’s trajectory—though further acceleration is needed to meet long-term climate goals.
