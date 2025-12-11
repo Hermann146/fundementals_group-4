@@ -64,7 +64,7 @@ library(dplyr)
 library(forcats)
 
 Data1 <- cO2_data |>
-  filter(Year >= 1990, Entity %in% c("Italy", "France", "Germany", "United Kingdom", "European Union (27)", "China", "United States")) |> 
+  filter(Year >= 1990, Entity %in% c("Italy", "European Union (27)", "China", "United States")) |> 
   rename(emissions_pc = "Annual CO₂ emissions (per capita)") |>
   mutate(Entity = fct_reorder2(Entity, Year, emissions_pc))
 
@@ -77,12 +77,16 @@ ggplot(Data1, aes(x = Year, y = emissions_pc, color = Entity, group = Entity)) +
   geom_point(data = filter(Data1, Entity == "Italy"),
              size = 2, color = "Blue", fill = "Blue", shape = 21) +
   
-  scale_fill_paletteer_d("ggthemes::Tableu_10")+
+ scale_color_manual(values = c(
+    "Italy" = "Blue",
+    "China" = "Purple",
+    "United States" = "Red",
+    "European Union (27)" = "Green")) +
 
   labs(
     title = "Comparing Italy's annual CO2 Emissions per Capita (1990 - 2024)",
     y = "per Capita CO2 Emissions (Million Tonnes)",
-    X = NULL,
+    X = "",
     color = "Country"
   ) +
   
