@@ -39,8 +39,6 @@ co2_vs_renw <- read_csv("Data/co2-per-capita-vs-renewable-electricity.csv")
 
 ## Overview and Objectives
 
-[**Overview Objective:**]{.underline}
-
 The objective is to assess Italy's overall discharge in CO~2~ emissions and energy use.
 
 We compare Italy with the EU, China and the US to understand its emission patterns.
@@ -298,13 +296,8 @@ ggplot(engery_clean, aes(
 Data source: Global Carbon Budget (2025) and other sources
 :::
 
-<<<<<<< HEAD
-## Percentage of Italy's energy production{.smaller}
-=======
-## Percentage of Italy's energy production
 
-Pie chart - percentage of Italy's energy production for 22 discuss the results and how it links to the public interest. \## Percentage of Italy's energy production {.smaller}
->>>>>>> eca95f34633e7ca3bb86b7eee6ef6dc4a191658d
+## Percentage of Italy's energy production{.smaller}
 
 ```{r}
 electricty_pd <-  clean_names(electricty_pd)
