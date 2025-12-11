@@ -6,8 +6,8 @@
 <script src="group_4_MA7419_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="group_4_MA7419_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="group_4_MA7419_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="group_4_MA7419_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="group_4_MA7419_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.42">
 
   <title>How does Italy’s reduction of carbon emissions compare to its region, USA and China?</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -28,7 +28,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="group_4_MA7419_files/libs/revealjs/dist/theme/quarto-82fba4f7f67806aaf9e59d8852c88f27.css">
+  <link rel="stylesheet" href="group_4_MA7419_files/libs/revealjs/dist/theme/quarto-42be27e3413bea3afb8f8a04be40a754.css">
   <link rel="stylesheet" href="custom.css">
   <link href="group_4_MA7419_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="group_4_MA7419_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -121,6 +121,24 @@
       margin-right: 0; 
     }
   </style>
+  <link href="group_4_MA7419_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+  <script src="group_4_MA7419_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+  <script src="group_4_MA7419_files/libs/plotly-binding-4.11.0/plotly.js"></script>
+
+  <script src="group_4_MA7419_files/libs/typedarray-0.1/typedarray.min.js"></script>
+
+  <script src="group_4_MA7419_files/libs/jquery-3.5.1/jquery.min.js"></script>
+
+  <link href="group_4_MA7419_files/libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+
+  <script src="group_4_MA7419_files/libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
+  <link href="group_4_MA7419_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+  <script src="group_4_MA7419_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -133,94 +151,173 @@
 </div>
 
 </section>
-<section id="slide-1-rahul" class="slide level2">
-<h2>Slide 1: Rahul</h2>
-<p>Overview Objectives: The objective is to assess Italy’s relative performance using key metrics like total emissions change , per-capita figures, and renewable energy adoption.</p>
-</section>
-<section id="slide-2" class="slide level2">
-<h2>Slide 2:</h2>
-<p>Method: Shahil</p>
-</section>
-<section id="italys-co2-emissions-vs-its-peers" class="slide level2">
-<h2>Italy’s CO<sub>2</sub> emissions vs its peers</h2>
-<p>Q1) How does Italy compare to … in CO2 emissions?: graph of CO2 emissions, 1990-2024- compare italy to UK, France, Germany, EU, US, China short bullet points discussing the results, link to pulic interest</p>
+<section id="overview-and-objectives" class="slide level2">
+<h2>Overview and Objectives</h2>
+<p>The objective is to assess Italy’s overall discharge in CO<sub>2</sub> emissions and energy use.</p>
+<p>We compare Italy with the EU, China and the US to understand its emission patterns.</p>
+<p>We also examine sector wise per capita emissions and the role of renewable energy over period.</p>
+<p>Finally, we review Italy’s energy mix and environmental policies to understand its progress towards sustainability.</p>
 
-<img data-src="group_4_MA7419_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><ul>
-<li class="fragment">Italy consistently emits less CO₂ per capita than Germany and the wider European Union average, while remaining higher than France.</li>
-<li class="fragment">The United States emits nearly three times Italy’s CO2 per capita, but China follows an inverse trajectory, with rapid industrialization reaching almost 9 tonnes today.</li>
-</ul>
-<div class="footer">
+<img data-src="Screenshot%202025-12-11%20160924.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="method" class="slide level2">
+<h2>Method</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th>Process</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Research Question</strong></td>
+<td>Comparison of Italy’s CO2 emissions reduction using renewable electricity against global countries.</td>
+<td>Analysis on Italy’s environmental performance and global comparison.</td>
+</tr>
+<tr class="even">
+<td><strong>Data Sources</strong></td>
+<td>Used datasets from Our World in Data (OWID).</td>
+<td>OWID is a reliable, public, and accessible source for fair international comparison.</td>
+</tr>
+<tr class="odd">
+<td><strong>Data Cleaning</strong></td>
+<td>The process cleaned column names, filtered data to relevant countries/years, and removed N/A values.</td>
+<td>Ensures consistency and accuracy for a fairer comparison.</td>
+</tr>
+<tr class="even">
+<td><strong>Visuals</strong></td>
+<td>Created line graphs, an area chart, and a pie chart which highlighted Italy’s data.</td>
+<td>Visuals show trends over time using line/area charts and single-year comparisons using pie chart.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="italys-co2-emissions-vs-its-peers" class="slide level2 smaller">
+<h2>Italy’s CO<sub>2</sub> emissions vs its peers</h2>
+
+<img data-src="group_4_MA7419_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><div class="footer">
 <p>Data source: Global Carbon Budget (2025); Population based on various sources (2024)</p>
 </div>
-</section>
-<section id="italys-per-capita-co₂-emissions-by-sector" class="slide level2">
-<h2>Italy’s Per capita CO₂ emissions by sector</h2>
 <ul>
-<li class="fragment"><p>Top Emitters: Electricity/heat (1,790) and transport (1,740) account for ~50% of emissions. Energy use and mobility are key targets.</p></li>
-<li class="fragment"><p>Mid-Tier: Buildings (890) and manufacturing (650) show moderate impact, indicating Italy’s less industrialized economy.</p></li>
-<li class="fragment"><p>Carbon Sink: Land use/forestry (-220) provides a carbon offset.</p></li>
+<li class="fragment">Italy consistently emits less CO<sub>2</sub> per capita than Germany and the wider European Union average, while remaining higher than France.</li>
+<li class="fragment">The United States emits nearly three times Italy’s CO<sub>2</sub> per capita, but China follows an inverse trajectory, with rapid industrialization reaching almost 9 tonnes today.</li>
 </ul>
 </section>
-<section id="next" class="slide level2">
-<h2>next</h2>
-<div class="{nonincremental}">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="group_4_MA7419_files/figure-revealjs/unnamed-chunk-4-1.gif"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="version-2" class="slide level2">
-<h2>version 2</h2>
+<section id="italys-per-capita-co2-emissions-by-sector" class="slide level2 smaller">
+<h2>Italy’s Per capita CO<sub>2</sub> emissions by sector</h2>
 
-<img data-src="group_4_MA7419_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><ul>
+<img data-src="group_4_MA7419_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><div class="footer{.smaller}">
+<p>Data source: Climate Watch (2025); Population based on various sources (2024)</p>
+</div>
+<ul>
 <li class="fragment"><p>Emissions peaked in mid-2000s, led by electricity/heat and transport.</p></li>
 <li class="fragment"><p>Significant decline since then across nearly all sectors.</p></li>
 <li class="fragment"><p>Trend reflects cleaner energy, efficiency gains, and economic shifts.</p></li>
 </ul>
-<div class="footer{.smaller}">
+</section>
+<section id="electricity-and-heat-production-for-italy-vs-its-peers" class="slide level2 smaller">
+<h2>Electricity and heat production for Italy vs its peers</h2>
+
+<img data-src="group_4_MA7419_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><div class="footer{.smaller}">
 <p>Data source: Climate Watch (2025); Population based on various sources (2024)</p>
 </div>
-</section>
-<section id="electricity-and-heat-production-for-italy-vs-." class="slide level2">
-<h2>Electricity and heat production for Italy vs ….</h2>
-
-<img data-src="group_4_MA7419_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
-<section id="what-percentage-of-italys-energy-production-come-form-renewable-sources" class="slide level2">
-<h2>what percentage of Italy’s energy production come form renewable sources?</h2>
-
-<img data-src="group_4_MA7419_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"><ul>
-<li class="fragment"><p>Italy’s renewable electricity share has seen a steady growth from 1990 to 2022, with massive growth starting from 2008.</p></li>
-<li class="fragment"><p>Italy outperforms the US, France and China, while the UK and Germany show faster renewable growth peaks.</p></li>
+<ul>
+<li class="fragment"><p>Italy’s CO2 emissions are consistently mid level, staying below the US but above China in most sectors.</p></li>
+<li class="fragment"><p>Electricity, heat and transport emissions in Italy decline after 2005, showing steady long term improvement.</p></li>
+<li class="fragment"><p>China rises sharply in industry and electricity sectors, while the US stays highest across all categories.</p></li>
 </ul>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD - Italy’s progress shows commitment towards cleaner electricity usage and their transition to achieve that goal.</p>
 </section>
-<section>
-<section id="word-this-line-graph-showcases-the-percentage-of-electricity-produced-from-renewable-energy-sources-and-is-compared-with-the-uk-germany-france-china-and-us-from-1990-to-2022.-italy-generation-of-renewable-electricity-has-increased-with-significant-acceleration-beginning-from-2008.-also-italy-outperforms-the-us-france-and-china-but-is-behind-germany-and-uk-who-show-faster-growth.-the-trends-suggest-all-countries-are-committed-to-transitioning-to-renewable-electricity-which-the-graph-shows-meaning-italy-progress-towards-more-sustainable-energy-is-positive." class="title-slide slide level1 notes center">
-<h1>100 word: This line graph showcases the percentage of electricity produced from renewable energy sources, and is compared with the UK, Germany, France, China and US from 1990 to 2022. Italy generation of renewable electricity has increased with significant acceleration beginning from 2008. Also, Italy outperforms the US, France and China but is behind Germany and UK who show faster growth. The trends suggest all countries are committed to transitioning to renewable electricity which the graph shows meaning Italy progress towards more sustainable energy is positive.</h1>
+<section id="what-percentage-of-italys-energy-production-come-form-renewable-sources" class="slide level2 smaller">
+<h2>What percentage of Italy’s energy production come form renewable sources?</h2>
+
+<img data-src="group_4_MA7419_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><ul>
+<li class="fragment"><p>Italy’s renewable electricity share has seen a steady growth from 1990 to 2022, with massive growth starting from 2008.</p></li>
+<li class="fragment"><p>Italy outperforms the US and China, while the European Union shows higher renewable growth peaks in 2022.</p></li>
+<li class="fragment"><p>Italy’s progress shows commitment towards cleaner electricity usage and their transition to achieve that goal.</p></li>
+</ul>
 <div class="footer{.smaller}">
 <p>Data source: Global Carbon Budget (2025) and other sources</p>
 </div>
 </section>
-<section id="slide-8-jagroop" class="slide level2">
-<h2>Slide 8: Jagroop</h2>
-<p>Pie chart - percentage of Italy’s energy production for 22 discuss the results and how it links to the public interest.</p>
-<p>discuss the results and how it links to the public interest.</p>
+<section id="percentage-of-italys-energy-production" class="slide level2 smaller">
+<h2>Percentage of Italy’s energy production</h2>
+<div class="cell">
+<div class="cell-output-display">
+<<<<<<< HEAD
+<div class="plotly html-widget html-fill-item" id="htmlwidget-fdc09d6fe451c4c9caed" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-fdc09d6fe451c4c9caed">{"x":{"visdat":{"114c2f971797":["function () ","plotlyVisDat"],"114c47cb5e44":["function () ","data"],"114c468d67c1":["function () ","data"],"114c1e67725f":["function () ","data"],"114c7aa95168":["function () ","data"]},"cur_data":"114c7aa95168","attrs":{"114c47cb5e44":{"marker":{"colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":{},"type":"pie","name":"Italy","domain":{"row":0,"column":0},"inherit":true},"114c468d67c1":{"marker":{"colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":{},"type":"pie","name":"European Union","domain":{"row":0,"column":1},"inherit":true},"114c1e67725f":{"marker":{"colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":{},"type":"pie","name":"USA","domain":{"row":1,"column":0},"inherit":true},"114c7aa95168":{"marker":{"colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":{},"type":"pie","name":"China","domain":{"row":1,"column":1},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"annotations":[{"text":"Comparing Italy's Energy Production to other countries in 2022","y":1.0600000000000001,"x":0.5,"showarrow":false,"font":{"size":13.5,"color":"black"}},{"text":"Comparing Italy's Energy Production to other countries in 2022","y":1.0600000000000001,"x":0.5,"showarrow":false,"font":{"size":13.5,"color":"black"}},{"text":"Italy","x":0.12,"y":1.03,"showarrow":false,"xref":"paper","yref":"paper","font":{"color":"black"}},{"text":"European Union","x":0.96999999999999997,"y":1.03,"showarrow":false,"xref":"paper","yref":"paper","font":{"color":"black"}},{"text":"USA","x":0.12,"y":0.47999999999999998,"showarrow":false,"xref":"paper","yref":"paper","font":{"color":"black"}},{"text":"China","x":0.93999999999999995,"y":0.5,"showarrow":false,"xref":"paper","yref":"paper","font":{"color":"black"}}],"grid":{"rows":2,"columns":2},"legend":{"font":{"size":18}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"marker":{"color":"rgba(31,119,180,1)","colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"values":[5.8399999999999999,15.630000000000001,17.609999999999999,20.489999999999998,22.609999999999999,28.120000000000001,28.399999999999999,141.47],"labels":["Other_Renewables","Oil","Bioenergry","Wind","Coal","Solar","Hydro","Gas"],"type":"pie","name":"Italy","domain":{"row":0,"column":0},"frame":null},{"marker":{"color":"rgba(255,127,14,1)","colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"values":[6.9300002999999997,105.63,165.50999999999999,209.86000000000001,276.14999999999998,421.30000000000001,448.43000000000001,533.97002999999995],"labels":["Other_Renewables","Oil","Bioenergry","Solar","Hydro","Wind","Coal","Gas"],"type":"pie","name":"European Union","domain":{"row":0,"column":1},"frame":null},{"marker":{"color":"rgba(44,160,44,1)","colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"values":[18.16,38.640000000000001,51.850000000000001,205.06999999999999,248.75999999999999,434.30000000000001,831.50999999999999,1687.0599999999999],"labels":["Other_Renewables","Oil","Bioenergry","Solar","Hydro","Wind","Coal","Gas"],"type":"pie","name":"USA","domain":{"row":1,"column":0},"frame":null},{"marker":{"color":"rgba(214,39,40,1)","colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"values":[0,72.040000000000006,182.53,275.62,427.26999999999998,762.66999999999996,1298.1199999999999,5412.6800000000003],"labels":["Other_Renewables","Oil","Bioenergry","Gas","Solar","Wind","Hydro","Coal"],"type":"pie","name":"China","domain":{"row":1,"column":1},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+=======
+<<<<<<< HEAD
+<div class="plotly html-widget html-fill-item" id="htmlwidget-bf808e3db1ab44f18bfe" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-bf808e3db1ab44f18bfe">{"x":{"visdat":{"76c45c841445":["function () ","plotlyVisDat"],"76c412425cbd":["function () ","data"],"76c4536542d2":["function () ","data"],"76c43951ab0":["function () ","data"],"76c42e711842":["function () ","data"]},"cur_data":"76c42e711842","attrs":{"76c412425cbd":{"marker":{"colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":{},"type":"pie","name":"Italy","domain":{"row":0,"column":0},"inherit":true},"76c4536542d2":{"marker":{"colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":{},"type":"pie","name":"European Union","domain":{"row":0,"column":1},"inherit":true},"76c43951ab0":{"marker":{"colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":{},"type":"pie","name":"USA","domain":{"row":1,"column":0},"inherit":true},"76c42e711842":{"marker":{"colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":{},"type":"pie","name":"China","domain":{"row":1,"column":1},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"annotations":[{"text":"Comparing Italy's Energy Production to other countries in 2022","y":1.0600000000000001,"x":0.5,"showarrow":false,"font":{"size":13.5,"color":"black"}},{"text":"Comparing Italy's Energy Production to other countries in 2022","y":1.0600000000000001,"x":0.5,"showarrow":false,"font":{"size":13.5,"color":"black"}},{"text":"Italy","x":0.12,"y":1.03,"showarrow":false,"xref":"paper","yref":"paper","font":{"color":"black"}},{"text":"European Union","x":0.96999999999999997,"y":1.03,"showarrow":false,"xref":"paper","yref":"paper","font":{"color":"black"}},{"text":"USA","x":0.12,"y":0.47999999999999998,"showarrow":false,"xref":"paper","yref":"paper","font":{"color":"black"}},{"text":"China","x":0.93999999999999995,"y":0.5,"showarrow":false,"xref":"paper","yref":"paper","font":{"color":"black"}}],"grid":{"rows":2,"columns":2},"legend":{"font":{"size":18}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"marker":{"color":"rgba(31,119,180,1)","colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"values":[5.8399999999999999,15.630000000000001,17.609999999999999,20.489999999999998,22.609999999999999,28.120000000000001,28.399999999999999,141.47],"labels":["Other_Renewables","Oil","Bioenergry","Wind","Coal","Solar","Hydro","Gas"],"type":"pie","name":"Italy","domain":{"row":0,"column":0},"frame":null},{"marker":{"color":"rgba(255,127,14,1)","colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"values":[6.9300002999999997,105.63,165.50999999999999,209.86000000000001,276.14999999999998,421.30000000000001,448.43000000000001,533.97002999999995],"labels":["Other_Renewables","Oil","Bioenergry","Solar","Hydro","Wind","Coal","Gas"],"type":"pie","name":"European Union","domain":{"row":0,"column":1},"frame":null},{"marker":{"color":"rgba(44,160,44,1)","colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"values":[18.16,38.640000000000001,51.850000000000001,205.06999999999999,248.75999999999999,434.30000000000001,831.50999999999999,1687.0599999999999],"labels":["Other_Renewables","Oil","Bioenergry","Solar","Hydro","Wind","Coal","Gas"],"type":"pie","name":"USA","domain":{"row":1,"column":0},"frame":null},{"marker":{"color":"rgba(214,39,40,1)","colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"values":[0,72.040000000000006,182.53,275.62,427.26999999999998,762.66999999999996,1298.1199999999999,5412.6800000000003],"labels":["Other_Renewables","Oil","Bioenergry","Gas","Solar","Wind","Hydro","Coal"],"type":"pie","name":"China","domain":{"row":1,"column":1},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+=======
+<div class="plotly html-widget html-fill-item" id="htmlwidget-3b3bc11e5f465b919c4a" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-3b3bc11e5f465b919c4a">{"x":{"visdat":{"25d012ba5efe":["function () ","plotlyVisDat"],"25d0573b16d9":["function () ","data"],"25d060b02404":["function () ","data"],"25d06ab6b41":["function () ","data"],"25d020907d5f":["function () ","data"]},"cur_data":"25d020907d5f","attrs":{"25d0573b16d9":{"marker":{"colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":{},"type":"pie","name":"Italy","domain":{"row":0,"column":0},"inherit":true},"25d060b02404":{"marker":{"colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":{},"type":"pie","name":"European Union","domain":{"row":0,"column":1},"inherit":true},"25d06ab6b41":{"marker":{"colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":{},"type":"pie","name":"USA","domain":{"row":1,"column":0},"inherit":true},"25d020907d5f":{"marker":{"colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":{},"type":"pie","name":"China","domain":{"row":1,"column":1},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"annotations":[{"text":"Comparing Italy's Energy Production to other countries in 2022","y":1.0600000000000001,"x":0.5,"showarrow":false,"font":{"size":13.5,"color":"black"}},{"text":"Comparing Italy's Energy Production to other countries in 2022","y":1.0600000000000001,"x":0.5,"showarrow":false,"font":{"size":13.5,"color":"black"}},{"text":"Italy","x":0.12,"y":1.03,"showarrow":false,"xref":"paper","yref":"paper","font":{"color":"black"}},{"text":"European Union","x":0.96999999999999997,"y":1.03,"showarrow":false,"xref":"paper","yref":"paper","font":{"color":"black"}},{"text":"USA","x":0.12,"y":0.47999999999999998,"showarrow":false,"xref":"paper","yref":"paper","font":{"color":"black"}},{"text":"China","x":0.93999999999999995,"y":0.5,"showarrow":false,"xref":"paper","yref":"paper","font":{"color":"black"}}],"grid":{"rows":2,"columns":2},"legend":{"font":{"size":18}},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"marker":{"color":"rgba(31,119,180,1)","colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"values":[5.8399999999999999,15.630000000000001,17.609999999999999,20.489999999999998,22.609999999999999,28.120000000000001,28.399999999999999,141.47],"labels":["Other_Renewables","Oil","Bioenergry","Wind","Coal","Solar","Hydro","Gas"],"type":"pie","name":"Italy","domain":{"row":0,"column":0},"frame":null},{"marker":{"color":"rgba(255,127,14,1)","colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"values":[6.9300002999999997,105.63,165.50999999999999,209.86000000000001,276.14999999999998,421.30000000000001,448.43000000000001,533.97002999999995],"labels":["Other_Renewables","Oil","Bioenergry","Solar","Hydro","Wind","Coal","Gas"],"type":"pie","name":"European Union","domain":{"row":0,"column":1},"frame":null},{"marker":{"color":"rgba(44,160,44,1)","colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"values":[18.16,38.640000000000001,51.850000000000001,205.06999999999999,248.75999999999999,434.30000000000001,831.50999999999999,1687.0599999999999],"labels":["Other_Renewables","Oil","Bioenergry","Solar","Hydro","Wind","Coal","Gas"],"type":"pie","name":"USA","domain":{"row":1,"column":0},"frame":null},{"marker":{"color":"rgba(214,39,40,1)","colors":["#BD3106FF","#D9700EFF","#E9A00EFF","#EEBE04FF","#5B7314FF","#C3D6CEFF","#89A6BBFF","#454B87FF"],"line":{"color":"#FFFFFF","width":1}},"values":[0,72.040000000000006,182.53,275.62,427.26999999999998,762.66999999999996,1298.1199999999999,5412.6800000000003],"labels":["Other_Renewables","Oil","Bioenergry","Gas","Solar","Wind","Hydro","Coal"],"type":"pie","name":"China","domain":{"row":1,"column":1},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+>>>>>>> 40a19ee023389a66ef69cdba2ed8ef5939a6af0a
+>>>>>>> 6beac56532f17d28b52cef3d1c32be3f9ecfa4d0
+</div>
+</div>
+<div class="footer">
+<p>Data source: Ember (2025); Energy Institute - Statistical Review of World Energy (2025)</p>
+</div>
+<ul>
+<li class="fragment"><p>Its hydro and solar shares are comparatively strong, aligning with EU trends and reflecting public interest in cleaner, sustainable energy.</p></li>
+<li class="fragment"><p>Italy uses much less coal and oil than the other countries, giving it a cleaner fossil-fuel profile and supporting public demand for reduced environmental impact.</p></li>
+<li class="fragment"><p>Although Italy produces more energy from renewable sources than the US and China, and a share similar to the EU, it still relies primarily on gas for its overall energy production.</p></li>
+</ul>
 </section>
-<section id="slide-9-sahadat" class="slide level2">
-<h2>Slide 9: Sahadat</h2>
-<p>Q4) Italy’s environmental policy campare to ….?</p>
+<section id="environmental-policy" class="slide level2">
+<h2>Environmental policy</h2>
+<p>Table of Italy’s Environmental Policy Comparison</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Comparative Region</th>
+<th>Italy’s Approach</th>
+<th>Key Differences</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>European Union</strong></td>
+<td>Italy aligns with EU goals (PNIEC) but resists strict EV-only mandates, favouring “tech neutrality” (biofuels).</td>
+<td>National Flexibility vs.&nbsp;Bloc Targets</td>
+</tr>
+<tr class="even">
+<td><strong>USA</strong></td>
+<td>Italy relies on Carbon Pricing and regulation (“Sticks”); the USA relies on uncapped Subsidies/IRA (“Carrots”).</td>
+<td>Regulation vs.&nbsp;Incentive</td>
+</tr>
+<tr class="odd">
+<td><strong>China</strong></td>
+<td>Italy has falling emissions but slow democratic permitting whereas China has rising emissions but rapid, state-mandated infrastructure build out.</td>
+<td>Democratic Process vs.&nbsp;Command &amp; Control.</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="slide-10-hermann" class="slide level2">
-<h2>Slide 10: Hermann</h2>
-<p>Conclusion</p>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<ul>
+<li class="fragment"><p>Italy has successfully reduced carbon emissions, showing a clear downward long-term trend.</p></li>
+<li class="fragment"><p>Its reduction pace is stronger than many EU peers, though not the fastest in Western Europe.</p></li>
+<li class="fragment"><p>Compared with the USA, Italy relies more on regulation and carbon pricing rather than subsidies.</p></li>
+<li class="fragment"><p>Compared with China, Italy cuts emissions more consistently but lacks China’s rapid large-scale infrastructure deployment.</p></li>
+<li class="fragment"><p>Overall: Italy performs relatively well, but future progress requires faster decarbonisation in transport and buildings.</p></li>
+</ul>
 
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="CopyOfuniversity-of-leicester-logo_2.png" class="slide-logo"></p>
@@ -514,172 +611,190 @@
     
 
     <script id="quarto-html-after-body" type="application/javascript">
-      window.document.addEventListener("DOMContentLoaded", function (event) {
-        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-        tabsets.forEach(function(tabset) {
-          const tabby = new Tabby('#' + tabset.id);
-        });
-        const isCodeAnnotation = (el) => {
-          for (const clz of el.classList) {
-            if (clz.startsWith('code-annotation-')) {                     
-              return true;
-            }
-          }
-          return false;
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
         }
-        const onCopySuccess = function(e) {
-          // button target
-          const button = e.trigger;
-          // don't keep focus
-          button.blur();
-          // flash "checked"
-          button.classList.add('code-copy-button-checked');
-          var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
-          let tooltip;
-          if (window.bootstrap) {
-            button.setAttribute("data-bs-toggle", "tooltip");
-            button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
-            tooltip = new bootstrap.Tooltip(button, 
-              { trigger: "manual", 
-                customClass: "code-copy-button-tooltip",
-                offset: [0, -8]});
-            tooltip.show();    
-          }
-          setTimeout(function() {
-            if (tooltip) {
-              tooltip.hide();
-              button.removeAttribute("data-bs-title");
-              button.removeAttribute("data-bs-toggle");
-              button.removeAttribute("data-bs-placement");
-            }
-            button.setAttribute("title", currentTitle);
-            button.classList.remove('code-copy-button-checked');
-          }, 1000);
-          // clear code selection
-          e.clearSelection();
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
         }
-        const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
-            }
-            return codeEl.innerText;
-        }
-        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-          text: getTextToCopy
-        });
-        clipboard.on('success', onCopySuccess);
-        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-            text: getTextToCopy,
-            container: window.document.getElementById('quarto-embedded-source-code-modal')
-          });
-          clipboardModal.on('success', onCopySuccess);
-        }
-          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-          var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
-          var isInternal = (href) => {
-              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-          }
-          // Inspect non-navigation links and adorn them if external
-         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-          for (var i=0; i<links.length; i++) {
-            const link = links[i];
-            if (!isInternal(link.href)) {
-              // undo the damage that might have been done by quarto-nav.js in the case of
-              // links that we want to consider external
-              if (link.dataset.originalHref !== undefined) {
-                link.href = link.dataset.originalHref;
-              }
-            }
-          }
-        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-          const config = {
-            allowHTML: true,
-            maxWidth: 500,
-            delay: 100,
-            arrow: false,
-            appendTo: function(el) {
-                return el.closest('section.slide') || el.parentElement;
-            },
-            interactive: true,
-            interactiveBorder: 10,
-            theme: 'light-border',
-            placement: 'bottom-start',
-          };
-          if (contentFn) {
-            config.content = contentFn;
-          }
-          if (onTriggerFn) {
-            config.onTrigger = onTriggerFn;
-          }
-          if (onUntriggerFn) {
-            config.onUntrigger = onUntriggerFn;
-          }
-            config['offset'] = [0,0];
-            config['maxWidth'] = 700;
-          window.tippy(el, config); 
-        }
-        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-        for (var i=0; i<noterefs.length; i++) {
-          const ref = noterefs[i];
-          tippyHover(ref, function() {
-            // use id or data attribute instead here
-            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-            try { href = new URL(href).hash; } catch {}
-            const id = href.replace(/^#\/?/, "");
-            const note = window.document.getElementById(id);
-            if (note) {
-              return note.innerHTML;
-            } else {
-              return "";
-            }
-          });
-        }
-        const findCites = (el) => {
-          const parentEl = el.parentElement;
-          if (parentEl) {
-            const cites = parentEl.dataset.cites;
-            if (cites) {
-              return {
-                el,
-                cites: cites.split(' ')
-              };
-            } else {
-              return findCites(el.parentElement)
-            }
-          } else {
-            return undefined;
-          }
-        };
-        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-        for (var i=0; i<bibliorefs.length; i++) {
-          const ref = bibliorefs[i];
-          const citeInfo = findCites(ref);
-          if (citeInfo) {
-            tippyHover(citeInfo.el, function() {
-              var popup = window.document.createElement('div');
-              citeInfo.cites.forEach(function(cite) {
-                var citeDiv = window.document.createElement('div');
-                citeDiv.classList.add('hanging-indent');
-                citeDiv.classList.add('csl-entry');
-                var biblioDiv = window.document.getElementById('ref-' + cite);
-                if (biblioDiv) {
-                  citeDiv.innerHTML = biblioDiv.innerHTML;
-                }
-                popup.appendChild(citeDiv);
-              });
-              return popup.innerHTML;
-            });
-          }
-        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
       });
-      </script>
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
     
 
 </body></html>
