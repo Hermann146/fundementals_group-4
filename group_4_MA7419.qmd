@@ -183,11 +183,6 @@ Data source: Climate Watch (2025); Population based on various sources (2024)
 
 c2 <- CS |> filter(entity %in% c("Italy", "European Union (27)", "China", "United States"),
                    sector %in% c("electricity and heat","industry", "emissions from transport", "buildings"))
-
-# maxt <- c2 |>
-#   filter(year == max(year))|>
-#   arrange(desc(emission))
-# c2$entity <- factor(c2$entity, levels = maxt$entity)
                    
 ggplot(c2, aes(x = year, y = emission, color = entity))+
   geom_line(key_glyph = "timeseries",size=1.3, alpha = .5)+
@@ -298,13 +293,7 @@ ggplot(engery_clean, aes(
 Data source: Global Carbon Budget (2025) and other sources
 :::
 
-<<<<<<< HEAD
 ## Percentage of Italy's energy production{.smaller}
-=======
-## Percentage of Italy's energy production
-
-Pie chart - percentage of Italy's energy production for 22 discuss the results and how it links to the public interest. \## Percentage of Italy's energy production {.smaller}
->>>>>>> eca95f34633e7ca3bb86b7eee6ef6dc4a191658d
 
 ```{r}
 electricty_pd <-  clean_names(electricty_pd)
@@ -396,14 +385,11 @@ graph
 
 ```
 
-<<<<<<< HEAD
--  Italy relies far more on gas than the EU and USA, making its energy mix less diversified and raising public concern about environmental and supply risks.
-=======
 ::: footer
 Data source: Ember (2025); Energy Institute - Statistical Review of World Energy (2025) 
 :::
+
 -   Its hydro and solar shares are comparatively strong, aligning with EU trends and reflecting public interest in cleaner, sustainable energy.
->>>>>>> 04dce7c7635dc821e313cb56e66cae48b861e683
 
 -   Italy uses much less coal and oil than the other countries, giving it a cleaner fossil-fuel profile and supporting public demand for reduced environmental impact.
 
