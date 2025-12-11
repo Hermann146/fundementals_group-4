@@ -390,7 +390,7 @@ graph
 
 ```
 
--  Italy relies far more on gas than the EU and USA, making its energy mix less diversified and raising public concern about price stability and supply risks.
+-  Italy relies far more on gas than the EU and USA, making its energy mix less diversified and raising public concern about environmental and supply risks.
 
 -  Its hydro and solar shares are comparatively strong, aligning with EU trends and reflecting public interest in cleaner, sustainable energy.
 

@@ -6,6 +6,7 @@ output: pdf_document
 ---
 
 ##Slide 1:
+Hello everyone. Today, we’ll be presenting our analysis titled ‘How Does Italy’s Reduction of Carbon Emissions Compare to Its Region, the USA, and China?’ In this presentation, we’ll explore key trends, examine how Italy’s progress aligns with major global countries, and discuss what these differences mean for environmental policy and future energy strategies.
 ##Slide 2:
 ##Slide 3:
 ##Slide 4:
