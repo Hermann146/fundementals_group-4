@@ -297,13 +297,9 @@ ggplot(engery_clean, aes(
 Data source: Global Carbon Budget (2025) and other sources
 :::
 
-<<<<<<< HEAD
 ## Percentage of Italy's energy production
 
-Pie chart - percentage of Italy's energy production for 22 discuss the results and how it links to the public interest.
-=======
-## Percentage of Italy's energy production {.smaller}
->>>>>>> 8d45e2d7fe43e805a5fb9de81c3bde2b0e432e87
+Pie chart - percentage of Italy's energy production for 22 discuss the results and how it links to the public interest. \## Percentage of Italy's energy production {.smaller}
 
 ```{r}
 electricty_pd <-  clean_names(electricty_pd)
