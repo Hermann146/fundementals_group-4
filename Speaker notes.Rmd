@@ -5,8 +5,9 @@ date: "2025-12-10"
 output: pdf_document
 ---
 
-## Slide 1:
-## Slide 2:
+##Slide 1:
+Hello everyone. Today, we’ll be presenting our analysis titled ‘How Does Italy’s Reduction of Carbon Emissions Compare to Its Region, the USA, and China?’ In this presentation, we’ll explore key trends, examine how Italy’s progress aligns with major global countries, and discuss what these differences mean for environmental policy and future energy strategies.
+##Slide 2:
 The objective is to assess Italy's overall discharge in CO2 emissions and energy use. We compare Italy with the EU, China and the US to understand its emission patterns. We also examine sector wise per capita emissions and the role of renewable energy over period. Finally, we review Italy’s energy mix and environmental policies to understand its progress towards sustainability.
 ## Slide 3:
 This slide explains the overall process for the project with justifications for the methods used. In the beginning we investigated how Italy reduces their carbon emission compared to other countries like EU, China and US using the metrics renewable electricity share and emission. All date sources are from OWID who provide reliable and trustworthy dataset which are accessible to the public. We cleaned the data by filtering and renaming columns to specific years which ensures fair comparisons. We created different graphs like area chart, line chart and pie chart based on the question
@@ -18,7 +19,8 @@ This chart presents line graphs of per capita carbon dioxide emissions from vari
 ## slide 7:
 This line graph showcases the percentage of electricity produced from renewable energy sources. We compare this with the EU, China and US from 1990 to 2022. Italy generation of renewable electricity has increased with significant acceleration beginning from 2008. Also, Italy outperforms the US and China but is behind EU who show faster growth. The trends suggest all countries are committed to transitioning to renewable electricity which the graph shows meaning Italy progress towards more sustainable energy is positive. The visual analyses Italy’s issue of high emission to see if they are transitioning towards cleaner energy. 
 ## Slide 8:
-In this chart, we compare Italy’s energy mix with the EU, USA, and China. Italy stands out for its very high dependence on gas, which makes energy prices and security major public concerns. At the same time, Italy shows relatively strong contributions from hydro and solar compared to other major economies, reflecting growing public support for renewables. Italy’s low use of coal and oil also highlights a cleaner fossil-fuel profile. Overall, the chart shows a country balancing current gas reliance with increasing pressure to expand sustainable energy.
+Italy shows comparatively strong hydro and solar contributions, aligning closely with EU renewable trends and reflecting public interest in cleaner energy. It also uses far less coal and oil than the other countries, giving it a cleaner fossil-fuel profile and supporting demand for reduced environmental impact. However, despite producing more renewable energy than the US and China—and a share similar to the EU—Italy still relies heavily on gas for its overall energy production. This dependence highlights ongoing environmental and sustainability challenges the country must address.
 ## Slide 9:
 ## Slide 10:
 Italy shows a steady and sustained reduction in carbon emissions compared with its peers. Its per capita emissions remain well below the EU average and far below the USA and China. Strong growth in renewable electricity and a cleaner energy mix,especially low coal use—support this downward trend. Overall, Italy aligns closely with EU progress and outperforms both the USA and China in terms of sustainability, though further reductions in transport and buildings are essential for meeting long-term climate goals.
+
