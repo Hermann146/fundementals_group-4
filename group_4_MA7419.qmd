@@ -314,45 +314,86 @@ clean_electricity_pd <- electricty_pd |>
     Gas = "electricity_from_gas_t_wh_adapted_for_visualization_of_chart_electricity_prod_source_stacked",
     Coal = "electricity_from_coal_t_wh_adapted_for_visualization_of_chart_electricity_prod_source_stacked")
 
+colors <- c("#BD3106FF", "#D9700EFF", "#E9A00EFF", "#EEBE04FF", "#5B7314FF", "#C3D6CEFF", "#89A6BBFF", "#454B87FF")
+
 italy_electricity_pd <- clean_electricity_pd |> 
     filter(entity == "Italy", year == 2022)
 
-electricty_pd_longer <- italy_electricity_pd |> 
+l_italy_electricty_pd <- italy_electricity_pd |> 
   pivot_longer(cols = c(Other_Renewables, Bioenergry, Solar, Wind, Hydro, Oil, Gas, Coal),
                names_to = "variables",
                values_to = "values") |> 
-  select(-c(entity, code, year)) |> 
+  select(-c(entity, code, year, Nuclear)) |> 
   arrange(values)
 
-colors <- c("#BD3106FF", "#D9700EFF", "#E9A00EFF", "#EEBE04FF", "#5B7314FF", "#C3D6CEFF", "#89A6BBFF", "#454B87FF")
+usa_electricity_pd <- clean_electricity_pd |>
+    filter(entity == "United States", year == 2022)
 
-final <- plot_ly(type='pie', labels=electricty_pd_longer$variables, values=electricty_pd_longer$values, 
-               textinfo='percent',
-               marker = list(colors = colors),
-               insidetextorientation='radial',
-               textfont = list(family = "Arial",
-                               size = 15,
-                               color = "white"))
-final <- final |> add_annotations(
-        y=1.06, 
-        x=0.5, 
-        text="Italy's Energy Production in 2022", 
+l_usa_electricty_pd <- usa_electricity_pd |> 
+  pivot_longer(cols = c(Other_Renewables, Bioenergry, Solar, Wind, Hydro, Oil, Gas, Coal),
+               names_to = "variables",
+               values_to = "values") |> 
+  select(-c(entity, code, year, Nuclear)) |> 
+  arrange(values)
+
+china_electricity_pd <- clean_electricity_pd |> 
+    filter(entity == "China", year == 2022)
+
+l_china_electricty_pd <- china_electricity_pd |> 
+  pivot_longer(cols = c(Other_Renewables, Bioenergry, Solar, Wind, Hydro, Oil, Gas, Coal),
+               names_to = "variables",
+               values_to = "values") |> 
+  select(-c(entity, code, year, Nuclear)) |> 
+  arrange(values)
+
+eu_electricity_pd <- clean_electricity_pd |> 
+    filter(entity == "European Union (27)", year == 2022)
+
+l_eu_electricty_pd <- eu_electricity_pd |> 
+  pivot_longer(cols = c(Other_Renewables, Bioenergry, Solar, Wind, Hydro, Oil, Gas, Coal),
+               names_to = "variables",
+               values_to = "values") |> 
+  select(-c(entity, code, year, Nuclear)) |> 
+  arrange(values)
+
+graph <- plot_ly( marker = list(colors = colors,
+                      line = list(color = '#FFFFFF', width = 1)))
+graph <- graph |>  add_pie(data = l_italy_electricty_pd, labels = ~variables, values = ~values,
+                         name = "Italy", domain = list(row = 0, column = 0))
+graph <- graph |>  add_pie(data = l_eu_electricty_pd, labels = ~variables, values = ~values,
+                       name = "European Union", domain = list(row = 0, column = 1))
+graph <- graph |>  add_pie(data = l_usa_electricty_pd, labels = ~variables, values = ~values,
+                       name = "USA", domain = list(row = 1, column = 0))
+graph <- graph |>  add_pie(data = l_china_electricty_pd, labels = ~variables, values = ~values,
+                       name = "China", domain = list(row = 1, column = 1))
+
+graph <- graph |> add_annotations(
+        y=1.06,
+        x=0.5,
+        text="Italy's Energy Production in 2022",
         showarrow=F,
         font=list(size=15,
                   color = "black"))
-final <- final |>
-  layout(
+graph <- graph |>
+  layout(grid=list(rows=2, columns=2),
     legend = list(
       font = list(size = 18)))
-final
+
+graph <- graph |> layout(annotations = list(
+    list(text = "Italy", x = 0.12, y = 1.03, showarrow = FALSE, xref="paper", yref="paper", font = list(color = "black")),
+    list(text = "European Union", x = 0.97, y = 1.03, showarrow = FALSE, xref="paper", yref="paper", font = list(color = "black")),
+    list(text = "USA", x = 0.12, y = 0.48, showarrow = FALSE, xref="paper", yref="paper", font = list(color = "black")),
+    list(text = "China", x = 0.94, y = 0.50, showarrow = FALSE, xref="paper", yref="paper", font = list(color = "black"))))
+
+graph
 
 ```
 
--   Italy’s strong dependence on gas keeps the country exposed to price swings and supply risks.
+-  Italy relies far more on gas than the EU and USA, making its energy mix less diversified and raising public concern about price stability and supply risks.
 
--   Renewable energy is expanding, yet it still falls short of what’s needed to greatly reduce fossil-fuel reliance.
+-  Its hydro and solar shares are comparatively strong, aligning with EU trends and reflecting public interest in cleaner, sustainable energy.
 
--   The overall mix shows a nation in transition, with public interest focused on cleaner, more secure, and affordable energy.
+-  Italy uses much less coal and oil than the other countries, giving it a cleaner fossil-fuel profile and supporting public demand for reduced environmental impact.
 
 ## Slide 9: Sahadat
 
