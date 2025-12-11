@@ -58,7 +58,7 @@ Finally, we review Italy’s energy mix and environmental policies to understand
 |------------------------|------------------------|------------------------|
 | **Research Question** | Comparison of Italy's CO2 emissions reduction using renewable electricity against global countries. | Analysis on Italy's environmental performance and global comparison. |
 | **Data Sources** | Used datasets from Our World in Data (OWID). | OWID is a reliable, public, and accessible source for fair international comparison. |
-| **Data Cleaning** | The process cleaned column names, filtered data to relevant countries/years, and removed N/A values. | Ensures consistency and accuracy for a fairer comparison. |
+| **Data Cleaning** | First we cleaned column names, filtered data to relevant countries/years, and removed N/A values. | Ensures consistency and accuracy for a fairer comparison. |
 | **Visuals** | Created line graphs, an area chart, and a pie chart which highlighted Italy's data. | Visuals show trends over time using line/area charts and single-year comparisons using pie chart. |
 
 ## Italy's CO~2~ emissions vs its peers {.smaller}
@@ -421,3 +421,9 @@ Table of Italy's Environmental Policy Comparison
 - Italy’s energy mix is cleaner than its peers due to low coal use and strong hydro/solar contributions.
 
 - Overall: Italy is reducing emissions more sustainably and consistently than the USA and China, and broadly aligns with the EU’s trajectory—though further acceleration is needed to meet long-term climate goals.
+![](Thank you.png){fig-align="center"}
+
+
+
+
+
