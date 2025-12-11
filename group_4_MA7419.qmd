@@ -39,7 +39,15 @@ co2_vs_renw <- read_csv("Data/co2-per-capita-vs-renewable-electricity.csv")
 
 ## Slide 1: Rahul
 
-Overview Objectives: The objective is to assess Italy's relative performance using key metrics like total emissions change , per-capita figures, and renewable energy adoption.
+[**Overview Objective -**]{.underline}
+
+The objective is to assess Italy's overall discharge in CO2 emissions and energy use.
+
+We compare Italy with the EU, China and the US to understand its emission patterns.
+
+We also examine sector wise per capita emissions and the role of renewable energy over period.
+
+Finally, we review Italy’s energy mix and environmental policies to understand its progress towards sustainability.
 
 ## Slide 2:
 
@@ -176,7 +184,7 @@ library(dplyr)
 library(ggplot2)
 elec_heat <- co2_sector |> 
   rename(country = entity, co2_from_heat_electricity = per_capita_carbon_dioxide_emissions_from_electricity_and_heat) |>
-  filter(country %in% c("Italy", "European Union (27)", "France", "Germany", "China", "United States", "United Kingdom")) |>
+  filter(country %in% c("Italy", "European Union (27)", "China", "United States")) |>
   select(country,code,year,co2_from_heat_electricity)
 
 max_elec_heat <- elec_heat |>
@@ -188,11 +196,11 @@ elec_heat$country <- factor(elec_heat$country, levels = max_elec_heat$country)
 ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))+
   geom_line(key_glyph = "timeseries",size=1.3, alpha = .5)+
   labs(title = "Per capita CO2 emissions from electricity and heat",
-       subtitle = "Italy compared with UK, France, Germany, China and US", 
+       subtitle = "Italy compared with EU, China and the US", 
        x = "", 
        y= "Per capita CO2 emissions",
        colour = "Country")+
-  theme_classic()+
+  theme_minimal()+
   theme(plot.title = element_text(face = "bold"),
         axis.title = element_text(face = "bold"))+
   geom_line(key_glyph = "timeseries",
@@ -200,6 +208,12 @@ ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))
             aes(x = year, y = co2_from_heat_electricity),
             size = 2)
 ```
+
+-   Italy’s CO2 emissions from electricity and heat showed a moderate increase between 1990 and 2006.
+
+-   Following this period, the figures declined steadily up to 2020, before rising again from 2020 to 2022.
+
+-   Italy releases CO2 through heat and electricity less than every other country, and US is in peak level, which shows Italy is showing more concern towards usage of carbon electricity.
 
 ## what percentage of Italy's energy production come form renewable sources?
 
@@ -277,6 +291,8 @@ ggplot(engery_clean, aes(
 
 -   Italy's progress shows commitment towards cleaner electricity usage and their transition to achieve that goal.
 
+-   Italy's progress shows commitment towards cleaner electricity usage and their transition to achieve that goal.
+
 ::: footer{.smaller}
 Data source: Global Carbon Budget (2025) and other sources
 :::
@@ -284,7 +300,6 @@ Data source: Global Carbon Budget (2025) and other sources
 ## Slide 8: Jagroop
 
 Pie chart - percentage of Italy's energy production for 22 discuss the results and how it links to the public interest.
-
 
 ```{r}
 electricty_pd <-  clean_names(electricty_pd)
@@ -301,6 +316,8 @@ clean_electricity_pd <- electricty_pd |>
     Gas = "electricity_from_gas_t_wh_adapted_for_visualization_of_chart_electricity_prod_source_stacked",
     Coal = "electricity_from_coal_t_wh_adapted_for_visualization_of_chart_electricity_prod_source_stacked")
 
+colors <- c("#BD3106FF", "#D9700EFF", "#E9A00EFF", "#EEBE04FF", "#5B7314FF", "#C3D6CEFF", "#89A6BBFF", "#454B87FF")
+
 italy_electricity_pd <- clean_electricity_pd |> 
     filter(entity == "Italy", year == 2022)
 
@@ -310,8 +327,6 @@ l_italy_electricty_pd <- italy_electricity_pd |>
                values_to = "values") |> 
   select(-c(entity, code, year, Nuclear)) |> 
   arrange(values)
-
-colors <- c("#BD3106FF", "#D9700EFF", "#E9A00EFF", "#EEBE04FF", "#5B7314FF", "#C3D6CEFF", "#89A6BBFF", "#454B87FF")
 
 usa_electricity_pd <- clean_electricity_pd |>
     filter(entity == "United States", year == 2022)
@@ -367,12 +382,11 @@ graph <- graph |>
       font = list(size = 18)))
 
 graph <- graph |> layout(annotations = list(
-    list(text = "Italy", x = 0.12, y = 1.03, showarrow = FALSE, xref='paper', yref='paper'),
-    list(text = "European Union", x = 0.97, y = 1.03, showarrow = FALSE, xref='paper', yref='paper'),
-    list(text = "USA", x = 0.12, y = 0.48, showarrow = FALSE, xref='paper', yref='paper'),
-    list(text = "China", x = 0.94, y = 0.50, showarrow = FALSE, xref='paper', yref='paper')
-  )
-)
+    list(text = "Italy", x = 0.12, y = 1.03, showarrow = FALSE, xref="paper", yref="paper", font = list(color = "black")),
+    list(text = "European Union", x = 0.97, y = 1.03, showarrow = FALSE, xref="paper", yref="paper", font = list(color = "black")),
+    list(text = "USA", x = 0.12, y = 0.48, showarrow = FALSE, xref="paper", yref="paper", font = list(color = "black")),
+    list(text = "China", x = 0.94, y = 0.50, showarrow = FALSE, xref="paper", yref="paper", font = list(color = "black"))))
+
 graph
 
 ```
