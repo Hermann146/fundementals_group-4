@@ -53,7 +53,7 @@ This slide explains the overall process for the project with justifications for 
 2. What is Italy's Per capita CO₂ emissions by sector?
 - 3 different graphs - bar, line, area
 3. Italys per capita emissions through heat and electricity - 1 line chart
-4. 
+4. Italys energy production in 2022 - 1 pie chart
 
 
 ## Slide 3:
@@ -452,13 +452,25 @@ ggplot(engery_clean, aes(
 This line graph showcases the percentage of electricity produced from renewable energy sources, and is compared with the UK, Germany, France, China and US from 1990 to 2022. Italy generation of renewable electricity has increased with significant acceleration beginning from 2008. Also, Italy outperforms the US, France and China but is behind Germany and UK who show faster growth. The trends suggest all countries are committed to transitioning to renewable electricity which the graph shows meaning Italy progress towards more sustainable energy is positive.
 
 
+<<<<<<< HEAD
 ## Percentage of Italy's energy production
 
+=======
+## Slide 8: Jagroop
+Pie chart - percentage of Italy's energy production for 22
+discuss the results and how it links to the public interest.
+>>>>>>> d03ca9c48842bd69bbc9f7f56632b92b6b3833a9
 ```{r}
 
 electricty_pd <-  clean_names(electricty_pd)
 
 
+<<<<<<< HEAD
+=======
+#Pie chart - percentage of Italy's energy production for 22 discuss the
+#results and how it links to the public interest.
+
+>>>>>>> d03ca9c48842bd69bbc9f7f56632b92b6b3833a9
 
 clean_electricity_pd <- electricty_pd |> 
   rename(
