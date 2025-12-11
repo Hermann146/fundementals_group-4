@@ -1,6 +1,6 @@
 ---
 title: "Speaker notes"
-author: "hads2, sba11, js1392..."
+author: "hads2, sba11, js1392, sad44, rp576"
 date: "2025-12-10"
 output: pdf_document
 ---
