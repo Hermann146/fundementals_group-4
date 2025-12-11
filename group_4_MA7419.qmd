@@ -406,12 +406,12 @@ Table of Italy's Environmental Policy Comparison
 
 ## Conclusion
 
-Italy has successfully reduced carbon emissions, showing a clear downward long-term trend.
+- Italy has successfully reduced carbon emissions, showing a clear downward long-term trend.
 
-Its reduction pace is stronger than many EU peers, though not the fastest in Western Europe.
+- Its reduction pace is stronger than many EU peers, though not the fastest in Western Europe.
 
-Compared with the USA, Italy relies more on regulation and carbon pricing rather than subsidies.
+- Compared with the USA, Italy relies more on regulation and carbon pricing rather than subsidies.
 
-Compared with China, Italy cuts emissions more consistently but lacks China’s rapid large-scale infrastructure deployment.
+- Compared with China, Italy cuts emissions more consistently but lacks China’s rapid large-scale infrastructure deployment.
 
-Overall: Italy performs relatively well, but future progress requires faster decarbonization in transport and buildings.
+- Overall: Italy performs relatively well, but future progress requires faster decarbonization in transport and buildings.
