@@ -276,7 +276,7 @@ ggplot(engery_clean, aes(
 Data source: Global Carbon Budget (2025) and other sources
 :::
 
-## Percentage of Italy's energy production 
+## Percentage of Italy's energy production
 
 ```{r}
 electricty_pd <-  clean_names(electricty_pd)

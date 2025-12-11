@@ -39,8 +39,6 @@ co2_vs_renw <- read_csv("Data/co2-per-capita-vs-renewable-electricity.csv")
 
 ## Overview and Objectives
 
-[**Overview Objective:**]{.underline}
-
 The objective is to assess Italy's overall discharge in CO~2~ emissions and energy use.
 
 We compare Italy with the EU, China and the US to understand its emission patterns.
@@ -204,7 +202,6 @@ ggplot(c2, aes(x = year, y = emission, color = entity))+
 ::: footer{.smaller}
 Data source: Climate Watch (2025); Population based on various sources (2024)
 :::
-
 -   Italy’s CO2 emissions are consistently mid level, staying below the US but above China in most sectors.
 
 -   Electricity, heat and transport emissions in Italy decline after 2005, showing steady long term improvement.
