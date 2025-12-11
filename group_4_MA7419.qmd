@@ -47,6 +47,11 @@ We also examine sector wise per capita emissions and the role of renewable energ
 
 Finally, we review Italy’s energy mix and environmental policies to understand its progress towards sustainability.
 
+
+![](Screenshot 2025-12-11 160924.png){fig-align="center"} 
+
+
+
 ## Method
 
 | Step | Process | Justification |
