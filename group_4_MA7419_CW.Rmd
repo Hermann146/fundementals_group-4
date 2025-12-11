@@ -342,7 +342,7 @@ library(dplyr)
 library(ggplot2)
 elec_heat <- co2_sector |> 
   rename(country = entity, co2_from_heat_electricity = per_capita_carbon_dioxide_emissions_from_electricity_and_heat) |>
-  filter(country %in% c("Italy", "European Union (27)", "France", "Germany", "China", "United States", "United Kingdom")) |>
+  filter(country %in% c("Italy", "European Union (27)", "China", "United States")) |>
   select(country,code,year,co2_from_heat_electricity)
 
 max_elec_heat <- elec_heat |>
@@ -354,7 +354,7 @@ elec_heat$country <- factor(elec_heat$country, levels = max_elec_heat$country)
 ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))+
   geom_line(key_glyph = "timeseries",size=1.3, alpha = .5)+
   labs(title = "Per capita CO2 emissions from electricity and heat",
-       subtitle = "Italy compared with UK, France, Germany, China and US", 
+       subtitle = "Italy compared with EU, China and the US", 
        x = "", 
        y= "Per capita CO2 emissions",
        colour = "Country")+
@@ -542,4 +542,9 @@ Q4) Italy's environmental policy campare to ....?
 ## Slide 10: Hermann
 
 Conclusion
+<<<<<<< HEAD
+=======
+:::
+
+>>>>>>> 9ec970639d5129ae2b1a5b4d98632c79713c5590
 

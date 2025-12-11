@@ -109,7 +109,7 @@ clCo2 <- co2_sector |> select(-per_capita_fugitive_emissions_of_carbon_dioxide_f
 
 
 CS <- clCo2  |> rename(
-  "Buildings" = per_capita_carbon_dioxide_emissions_from_buildings,
+  "buildings" = per_capita_carbon_dioxide_emissions_from_buildings,
   "electricity and heat" = per_capita_carbon_dioxide_emissions_from_electricity_and_heat,
   "industry" = per_capita_carbon_dioxide_emissions_from_industry,
   "bunker fuels" = per_capita_carbon_dioxide_emissions_from_bunker_fuels,
@@ -118,7 +118,7 @@ CS <- clCo2  |> rename(
   "manufacturing and construction" = per_capita_carbon_dioxide_emissions_from_manufacturing_and_construction,
   "other fuel combustion" = per_capita_carbon_dioxide_emissions_from_other_fuel_combustion)
 
-CS <- CS |> pivot_longer(cols = c("Buildings",
+CS <- CS |> pivot_longer(cols = c("buildings",
                                    "electricity and heat",
                                    "industry",
                                    "bunker fuels",
@@ -179,24 +179,19 @@ Data source: Climate Watch (2025); Population based on various sources (2024)
 ## Electricity and heat production for Italy vs its peers
 
 ```{r}
-library(dplyr)
-library(ggplot2)
-elec_heat <- co2_sector |> 
-  rename(country = entity, co2_from_heat_electricity = per_capita_carbon_dioxide_emissions_from_electricity_and_heat) |>
-  filter(country %in% c("Italy", "European Union (27)", "France", 
-                        "Germany", "China", "United States", "United Kingdom")) |>
-  select(country,code,year,co2_from_heat_electricity)
 
-max_elec_heat <- elec_heat |>
-  filter(year == max(year))|>
-  arrange(desc(co2_from_heat_electricity))
+c2 <- CS |> filter(entity %in% c("Italy", "European Union (27)", "China", "United States"),
+                   sector %in% c("electricity and heat","industry", "emissions from transport", "buildings"))
 
-elec_heat$country <- factor(elec_heat$country, levels = max_elec_heat$country)
-
-ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))+
+# maxt <- c2 |>
+#   filter(year == max(year))|>
+#   arrange(desc(emission))
+# c2$entity <- factor(c2$entity, levels = maxt$entity)
+                   
+ggplot(c2, aes(x = year, y = emission, color = entity))+
   geom_line(key_glyph = "timeseries",size=1.3, alpha = .5)+
   labs(title = "Per capita CO2 emissions from electricity and heat",
-       subtitle = "Italy compared with UK, France, Germany, China and US", 
+       subtitle = "Italy compared with EU, China and the US", 
        x = "", 
        y= "Per capita CO2 emissions",
        colour = "Country")+
@@ -204,9 +199,10 @@ ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))
   theme(plot.title = element_text(face = "bold"),
         axis.title = element_text(face = "bold"))+
   geom_line(key_glyph = "timeseries",
-            data = elec_heat |> filter(country=="Italy"),
-            aes(x = year, y = co2_from_heat_electricity),
-            size = 2)
+            data = c2 |> filter(entity=="Italy"),
+            aes(x = year, y = emission),
+            size = 1.4, alpha = .4)+
+  facet_wrap(~sector, scale = "free")
 ```
 
 
@@ -218,7 +214,7 @@ Data source: Climate Watch (2025); Population based on various sources (2024)
 
 -   Following this period, the figures declined steadily up to 2020, before rising again from 2020 to 2022.
 
--   Italy releases CO2 through heat and electricity less than every other country except France, and US is in peak level, which shows Italy is showing more concern towards usage of carbon electricity.
+-   Italy releases CO2 through heat and electricity less than every other country, and US is in peak level, which shows Italy is showing more concern towards usage of carbon electricity.
 
 ## what percentage of Italy's energy production come form renewable sources?
 
