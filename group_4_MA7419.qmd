@@ -39,19 +39,15 @@ co2_vs_renw <- read_csv("Data/co2-per-capita-vs-renewable-electricity.csv")
 
 ## Slide 1: Rahul
 
-Overview Objectives: The objective is to assess Italy's relative performance using key metrics like total emissions change, per-capita figures, and renewable energy adoption.
+[**Overview Objective -**]{.underline}
 
-To compare Italy with other countries in total CO2 emissions, we created a line chart showing emissions trends over time. This helped identify whether Italy’s performance was improving or worsening relative to peers.
+The objective is to assess Italy's overall discharge in CO2 emissions and energy use.
 
-For Italy’s per-capita CO2 emissions by sector, we used three different visualizations: bar, line, and area charts. These charts allowed a clear view of which sectors contributed most to emissions and how trends changed over the years.
+We compare Italy with the EU, China and the US to understand its emission patterns.
 
-We analyzed Italy’s per-capita emissions from heat and electricity using a line chart, highlighting trends in energy-related emissions and providing insights into the country’s electricity and heat consumption patterns.
+We also examine sector wise per capita emissions and the role of renewable energy over period.
 
-We also checked the percentage of Italy’s energy production comes from renewables using a line graph for 1990 to 2022, showing how the share of clean energy has changed over time.
-
-Italy’s energy production in 2022 was represented with a pie chart, showing the proportion of different energy sources and highlighting the share of renewables in the overall energy mix.
-
-Finally, we compared Italy’s environmental policies with other countries in a table, summarizing the main regulations, targets, and initiatives, allowing a quick understanding of Italy’s policy position globally.
+Finally, we review Italy’s energy mix and environmental policies to understand its progress towards sustainability.
 
 ## Method
 
