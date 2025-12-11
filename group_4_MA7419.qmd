@@ -213,7 +213,7 @@ ggplot(elec_heat, aes(x = year, y = co2_from_heat_electricity, color = country))
 
 -   Following this period, the figures declined steadily up to 2020, before rising again from 2020 to 2022.
 
--   Italy releases CO2 through heat and electricity less than every other country except France, and US is in peak level, which shows Italy is showing more concern towards usage of carbon electricity.
+-   Italy releases CO2 through heat and electricity less than every other country, and US is in peak level, which shows Italy is showing more concern towards usage of carbon electricity.
 
 ## what percentage of Italy's energy production come form renewable sources?
 
