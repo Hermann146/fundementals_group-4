@@ -76,18 +76,12 @@ ggplot(Data1, aes(x = Year, y = emissions_pc, color = Entity, group = Entity)) +
   geom_line(data = filter(Data1, Entity == "Italy"), 
             size = 1.4) +
   geom_point(data = filter(Data1, Entity == "Italy"),
-<<<<<<< HEAD
              size = 2, color = "Blue", fill = "Blue", shape = 21) +
   scale_color_manual(values = c(
     "Italy" = "Blue",
     "China" = "Purple",
     "United States" = "Red",
     "European Union (27)" = "Green")) +
-=======
-             size = 2.2) +
-  
-  scale_color_brewer(palette = "Dark2") +
->>>>>>> a80f6b2996a028b6f60cdb882ed23e30c82ba01c
 
   labs(
     title = "Comparing Italy's annual CO2 Emissions per Capita (1990 - 2024)",
@@ -103,7 +97,7 @@ ggplot(Data1, aes(x = Year, y = emissions_pc, color = Entity, group = Entity)) +
   )
 ```
 
-<<<<<<< HEAD
+
 - Italy consistently emits less CO₂ per capita than the wider European Union average.
 - The United States emits nearly three times Italy’s CO2 per capita, but China follows an inverse trajectory, with rapid industrialization reaching almost 9 tonnes today.
 
